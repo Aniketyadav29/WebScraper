@@ -10,7 +10,9 @@
 ![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![Chart.js](https://img.shields.io/badge/Chart.js-4.4-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
 
-**Developed by Aniket Yadav | BBD**
+**Developed by Aniket Yadav**
+
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-PriceIQ-blue?style=for-the-badge)](https://web-scraper-nu-sandy.vercel.app/)
 
 </div>
 
