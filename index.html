@@ -1,15 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=competitor-pricing-engine/frontend/index.html">
-  <script type="text/javascript">
-    window.location.href = "competitor-pricing-engine/frontend/index.html";
-  </script>
-  <title>Redirecting to Competitor Intelligence Engine</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competitor Intelligence & Dynamic Pricing Engine</title>
+  <meta name="description" content="Real-time competitor price intelligence and AI-powered dynamic pricing dashboard built with XGBoost ML and FastAPI." />
+  <meta name="author" content="Aniket Yadav | BBD" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body style="background:#080c14; color:#94a3b8; font-family:sans-serif; text-align:center; padding-top:20vh;">
-  <h2>Redirecting to PriceIQ Dashboard...</h2>
-  <p>If you are not redirected automatically, <a href="competitor-pricing-engine/frontend/index.html" style="color:#3b82f6;">click here</a>.</p>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════ LOADER ══ -->
+  <div id="loader" class="loader-overlay">
+    <div class="loader-content">
+      <div class="loader-ring"></div>
+      <p class="loader-text">Connecting to Pricing Engine...</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ HEADER ══ -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">
+        <div class="logo-icon">
+          <i data-lucide="trending-up"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">PriceIQ</span>
+          <span class="logo-sub">Competitor Intelligence Engine</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="status-bar">
+        <div class="status-dot" id="api-status-dot"></div>
+        <span id="api-status-text">Connecting...</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="live-clock" id="live-clock"></div>
+      <button class="refresh-btn" id="refresh-btn" onclick="refreshAll()">
+        <i data-lucide="refresh-cw"></i>
+        <span>Refresh</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ MAIN ══ -->
+  <main class="main-content">
+
+    <!-- ── KPI Cards ─────────────────────────────────── -->
+    <section class="kpi-grid" id="kpi-section">
+
+      <div class="kpi-card" id="kpi-products">
+        <div class="kpi-icon kpi-blue">
+          <i data-lucide="package"></i>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">Total Products</span>
+          <span class="kpi-value" id="kpi-total-products">--</span>
+          <span class="kpi-sub">Tracked items</span>
+        </div>
+      </div>
+
+      <div class="kpi-card" id="kpi-price">
+        <div class="kpi-icon kpi-green">
+          <i data-lucide="pound-sterling"></i>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">Avg Market Price</span>
+          <span class="kpi-value" id="kpi-avg-price">--</span>
+          <span class="kpi-sub">GBP across all competitors</span>
+        </div>
+      </div>
+
+      <div class="kpi-card" id="kpi-cheapest">
+        <div class="kpi-icon kpi-purple">
+          <i data-lucide="trophy"></i>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">Cheapest Competitor</span>
+          <span class="kpi-value" id="kpi-cheapest-comp">--</span>
+          <span class="kpi-sub">Lowest average pricing</span>
+        </div>
+      </div>
+
+      <div class="kpi-card" id="kpi-model">
+        <div class="kpi-icon kpi-orange">
+          <i data-lucide="brain"></i>
+        </div>
+        <div class="kpi-body">
+          <span class="kpi-label">ML Model Confidence</span>
+          <span class="kpi-value" id="kpi-confidence">--</span>
+          <span class="kpi-sub">XGBoost R² score</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Charts Row ─────────────────────────────────── -->
+    <section class="charts-row">
+
+      <!-- Competitor Price Comparison Bar Chart -->
+      <div class="chart-card chart-wide">
+        <div class="chart-header">
+          <div>
+            <h2 class="chart-title">Competitor Price Comparison</h2>
+            <p class="chart-sub">Average price per competitor (GBP)</p>
+          </div>
+          <div class="chart-badge badge-blue">LIVE</div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="competitorBarChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Stock Status Donut Chart -->
+      <div class="chart-card chart-narrow">
+        <div class="chart-header">
+          <div>
+            <h2 class="chart-title">Stock Distribution</h2>
+            <p class="chart-sub">In-stock vs Out-of-stock</p>
+          </div>
+          <div class="chart-badge badge-green">LIVE</div>
+        </div>
+        <div class="chart-wrap chart-donut-wrap">
+          <canvas id="stockDonutChart"></canvas>
+        </div>
+        <div class="donut-legend" id="donut-legend"></div>
+      </div>
+
+    </section>
+
+    <!-- ── Price History + AI Engine ──────────────────── -->
+    <section class="mid-row">
+
+      <!-- Price History Line Chart -->
+      <div class="chart-card chart-history">
+        <div class="chart-header">
+          <div>
+            <h2 class="chart-title">Price History</h2>
+            <p class="chart-sub">Track competitor price trends over time</p>
+          </div>
+          <select class="product-select" id="product-select" onchange="loadPriceHistory()">
+            <option value="">-- Select a product --</option>
+          </select>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="priceHistoryChart"></canvas>
+        </div>
+      </div>
+
+      <!-- AI Pricing Engine Panel -->
+      <div class="ai-panel">
+        <div class="ai-panel-header">
+          <div class="ai-icon">
+            <i data-lucide="zap"></i>
+          </div>
+          <div>
+            <h2 class="chart-title">AI Pricing Engine</h2>
+            <p class="chart-sub">XGBoost dynamic price prediction</p>
+          </div>
+        </div>
+
+        <form class="ai-form" id="ai-form" onsubmit="predictPrice(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="our-price">Our Price (GBP)</label>
+              <input type="number" id="our-price" step="0.01" min="0.01" value="35.00" required />
+            </div>
+            <div class="form-group">
+              <label for="comp-a">Competitor A (GBP)</label>
+              <input type="number" id="comp-a" step="0.01" min="0.01" value="30.50" required />
+            </div>
+            <div class="form-group">
+              <label for="comp-b">Competitor B (GBP)</label>
+              <input type="number" id="comp-b" step="0.01" min="0.01" value="33.00" required />
+            </div>
+            <div class="form-group">
+              <label for="comp-c">Competitor C (GBP)</label>
+              <input type="number" id="comp-c" step="0.01" min="0.01" value="37.50" required />
+            </div>
+            <div class="form-group">
+              <label for="rating">Product Rating</label>
+              <input type="number" id="rating" step="0.1" min="0" max="5" value="4.2" required />
+            </div>
+            <div class="form-group">
+              <label for="pred-month">Month</label>
+              <select id="pred-month">
+                <option value="1">January</option><option value="2">February</option>
+                <option value="3">March</option><option value="4">April</option>
+                <option value="5">May</option><option value="6">June</option>
+                <option value="7">July</option><option value="8">August</option>
+                <option value="9">September</option><option value="10">October</option>
+                <option value="11">November</option><option value="12" selected>December</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-check-row">
+            <label class="check-label">
+              <input type="checkbox" id="in-stock" checked />
+              <span>In Stock</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" id="is-weekend" />
+              <span>Weekend</span>
+            </label>
+          </div>
+
+          <button type="submit" class="predict-btn" id="predict-btn">
+            <i data-lucide="zap"></i>
+            <span>Predict Optimal Price</span>
+          </button>
+        </form>
+
+        <!-- Prediction Result -->
+        <div class="prediction-result" id="prediction-result" style="display:none;">
+          <div class="result-header">
+            <span class="result-label">AI Recommendation</span>
+            <div class="confidence-badge" id="confidence-badge">--</div>
+          </div>
+          <div class="result-prices">
+            <div class="result-price-item">
+              <span class="rp-label">Current Price</span>
+              <span class="rp-value current-price" id="res-current">--</span>
+            </div>
+            <div class="result-arrow">
+              <i data-lucide="arrow-right"></i>
+            </div>
+            <div class="result-price-item">
+              <span class="rp-label">Optimal Price</span>
+              <span class="rp-value optimal-price" id="res-optimal">--</span>
+            </div>
+          </div>
+          <div class="result-gap" id="res-gap"></div>
+          <p class="result-recommendation" id="res-recommendation"></p>
+          <p class="result-revenue" id="res-revenue"></p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── Live Competitor Price Table ─────────────────── -->
+    <section class="table-section">
+      <div class="table-card">
+        <div class="table-header">
+          <div>
+            <h2 class="chart-title">Live Competitor Price Feed</h2>
+            <p class="chart-sub">Latest observed prices per product per competitor</p>
+          </div>
+          <div class="table-controls">
+            <input type="text" id="table-search" placeholder="Search product..." oninput="filterTable()" />
+            <select id="comp-filter" onchange="filterTable()">
+              <option value="">All Competitors</option>
+              <option value="Competitora">Competitor A</option>
+              <option value="Competitorb">Competitor B</option>
+              <option value="Competitorc">Competitor C</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="price-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Competitor</th>
+                <th>Price (GBP)</th>
+                <th>Price (USD)</th>
+                <th>Rating</th>
+                <th>In Stock</th>
+                <th>Scraped At</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr><td colspan="7" class="table-loading">Loading data...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════ FOOTER ══ -->
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="footer-brand">PriceIQ</span>
+      <span class="footer-sep">|</span>
+      <span>Competitor Intelligence &amp; Dynamic Pricing Engine</span>
+    </div>
+    <div class="footer-center">
+      <span class="footer-stack">Python · XGBoost · FastAPI · Chart.js</span>
+    </div>
+    <div class="footer-right">
+      <span>Developed by <strong>Aniket Yadav | BBD</strong></span>
+    </div>
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="dashboard.js"></script>
 </body>
 </html>
