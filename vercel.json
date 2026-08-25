@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/competitor-pricing-engine/frontend/index.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/competitor-pricing-engine/frontend/:path*"
+    }
+  ]
+}
