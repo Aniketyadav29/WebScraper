@@ -1,0 +1,28 @@
+2026-08-24 21:46:18 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-24 21:46:18 | INFO     | DataCleaner | Loading raw data from: data\raw\scraped_products_20260824_214543.csv
+2026-08-24 21:46:18 | INFO     | DataCleaner | Raw shape: (153, 7)
+2026-08-24 21:46:18 | INFO     | DataCleaner | Dropped 3 duplicate rows.
+2026-08-24 21:46:18 | WARNING  | DataCleaner | 4 rows have invalid/null price — imputing with competitor median.
+2026-08-24 21:46:18 | INFO     | DataCleaner | Clean shape:  (150, 9)
+2026-08-24 21:46:18 | INFO     | DataCleaner | Dropped 0 rows during cleaning.
+2026-08-24 21:46:18 | INFO     | DataCleaner | Cleaned data saved → data\clean\scraped_products_20260824_214543_clean.csv
+2026-08-25 21:56:52 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-25 21:56:52 | INFO     | DataCleaner | Loading raw data from: data\raw\scraped_products_20260824_214543.csv
+2026-08-25 21:56:52 | INFO     | DataCleaner | Raw shape: (153, 7)
+2026-08-25 21:56:52 | INFO     | DataCleaner | Dropped 3 duplicate rows.
+2026-08-25 21:56:52 | WARNING  | DataCleaner | 4 rows have invalid/null price — imputing with competitor median.
+2026-08-25 21:56:52 | INFO     | DataCleaner | Clean shape:  (150, 9)
+2026-08-25 21:56:52 | INFO     | DataCleaner | Dropped 0 rows during cleaning.
+2026-08-25 21:56:52 | INFO     | DataCleaner | Cleaned data saved -> data\clean\scraped_products_20260824_214543_clean.csv
+2026-08-25 21:57:13 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-25 21:57:13 | INFO     | DataCleaner | Loading raw data from: data\raw\scraped_products_20260824_214543.csv
+2026-08-25 21:57:13 | INFO     | DataCleaner | Raw shape: (153, 7)
+2026-08-25 21:57:13 | INFO     | DataCleaner | Dropped 3 duplicate rows.
+2026-08-25 21:57:13 | WARNING  | DataCleaner | 4 rows have invalid/null price — imputing with competitor median.
+2026-08-25 21:57:13 | INFO     | DataCleaner | Clean shape:  (150, 9)
+2026-08-25 21:57:13 | INFO     | DataCleaner | Dropped 0 rows during cleaning.
+2026-08-25 21:57:13 | INFO     | DataCleaner | Cleaned data saved -> data\clean\scraped_products_20260824_214543_clean.csv
+2026-08-25 21:57:13 | INFO     | DatabaseIngestion | Database schema initialised ✓
+2026-08-25 21:57:13 | INFO     | DatabaseIngestion | Starting DB ingestion — 150 rows from 'None'
+2026-08-25 21:57:13 | INFO     | DatabaseIngestion | Upserted 50 unique products into 'products' table.
+2026-08-25 21:57:13 | INFO     | DatabaseIngestion | Ingestion complete — 150 price_history rows inserted.

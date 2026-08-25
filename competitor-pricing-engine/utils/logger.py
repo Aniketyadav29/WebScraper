@@ -14,11 +14,14 @@ Author : Aniket Yadav | BBD
 Version: 1.0.0
 """
 
+import io
 import logging
 import os
+import sys
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
+from rich.console import Console
 from rich.logging import RichHandler
 
 # ---------------------------------------------------------------------------
@@ -64,14 +67,25 @@ def setup_logger(
 
     numeric_level = getattr(logging, level, logging.INFO)
 
+    # ---- Force UTF-8 stdout so Rich emojis/arrows work on Windows --------
+    if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+        try:
+            sys.stdout = io.TextIOWrapper(
+                sys.stdout.buffer, encoding="utf-8", errors="replace"
+            )
+        except AttributeError:
+            pass  # In some environments stdout has no .buffer
+
     # ---- Rich Console Handler (colourised, human-readable) --------------
+    _console = Console(stderr=False, highlight=False, force_terminal=False)
     console_handler = RichHandler(
         level=numeric_level,
         rich_tracebacks=True,
-        tracebacks_show_locals=True,
+        tracebacks_show_locals=False,
         show_time=True,
         show_path=True,
-        markup=True,
+        markup=False,
+        console=_console,
     )
     console_handler.setFormatter(logging.Formatter("%(message)s"))
 

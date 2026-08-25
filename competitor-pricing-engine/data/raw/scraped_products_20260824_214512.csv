@@ -1,0 +1,154 @@
+title,price_gbp,rating,in_stock,competitor,source_url,scraped_at
+Scott Pilgrim's Precious,£17.36,3.7,True,CompetitorA,https://books.toscrape.com/catalogue/scott-pilgrim's-precious_1/index.html,2026-08-24T14:19:29.287888+00:00
+Atomic Habits,£43.68,2.1,True,CompetitorA,https://books.toscrape.com/catalogue/atomic-habits_1/index.html,2026-08-24T14:58:05.287888+00:00
+Tipping the Velvet,£10.74,1.8,True,CompetitorB,https://books.toscrape.com/catalogue/tipping-the-velvet_1/index.html,2026-08-24T15:18:02.287888+00:00
+Tipping the Velvet,,1.8,True,CompetitorC,https://books.toscrape.com/catalogue/tipping-the-velvet_1/index.html,2026-08-24T15:22:07.287888+00:00
+Good to Great,£40.63,5.0,True,CompetitorB,https://books.toscrape.com/catalogue/good-to-great_1/index.html,2026-08-24T14:37:44.287888+00:00
+Zero to One,£38.82,1.9,True,CompetitorA,https://books.toscrape.com/catalogue/zero-to-one_1/index.html,2026-08-24T16:09:02.287888+00:00
+It's Only the Himalayas,£9.65,2.1,True,CompetitorC,https://books.toscrape.com/catalogue/it's-only-the-himalayas_1/index.html,2026-08-24T14:29:12.287888+00:00
+Worlds Elsewhere,£52.15,2.1,True,CompetitorB,https://books.toscrape.com/catalogue/worlds-elsewhere_1/index.html,2026-08-24T15:52:37.287888+00:00
+The Requiem Red,£45.78,3.4,True,CompetitorB,https://books.toscrape.com/catalogue/the-requiem-red_1/index.html,2026-08-24T14:51:26.287888+00:00
+Birdsong,£24.25,2.6,True,CompetitorC,https://books.toscrape.com/catalogue/birdsong_1/index.html,2026-08-24T15:13:44.287888+00:00
+Black Dust,£57.28,3.6,True,CompetitorC,https://books.toscrape.com/catalogue/black-dust_1/index.html,2026-08-24T15:26:32.287888+00:00
+Birdsong,£26.63,2.6,True,CompetitorA,https://books.toscrape.com/catalogue/birdsong_1/index.html,2026-08-24T15:21:38.287888+00:00
+Deep Work,£31.45,3.3,True,CompetitorA,https://books.toscrape.com/catalogue/deep-work_1/index.html,2026-08-24T14:58:22.287888+00:00
+Worlds Elsewhere,£48.89,2.1,True,CompetitorC,https://books.toscrape.com/catalogue/worlds-elsewhere_1/index.html,2026-08-24T15:19:21.287888+00:00
+Stillness is the Key,£16.29,5.0,False,CompetitorA,https://books.toscrape.com/catalogue/stillness-is-the-key_1/index.html,2026-08-24T16:01:42.287888+00:00
+The Lean Startup,£26.78,2.6,True,CompetitorC,https://books.toscrape.com/catalogue/the-lean-startup_1/index.html,2026-08-24T15:28:55.287888+00:00
+Deep Work,£30.54,3.3,False,CompetitorC,https://books.toscrape.com/catalogue/deep-work_1/index.html,2026-08-24T16:03:25.287888+00:00
+The Boys in the Boat,£25.24,1.7,False,CompetitorA,https://books.toscrape.com/catalogue/the-boys-in-the-boat_1/index.html,2026-08-24T15:20:05.287888+00:00
+Atomic Habits,£41.65,2.1,True,CompetitorB,https://books.toscrape.com/catalogue/atomic-habits_1/index.html,2026-08-24T15:12:33.287888+00:00
+Shoe Dog,£37.62,1.2,True,CompetitorC,https://books.toscrape.com/catalogue/shoe-dog_1/index.html,2026-08-24T15:41:52.287888+00:00
+Our Band Could Be Your Life,£37.04,4.1,True,CompetitorC,https://books.toscrape.com/catalogue/our-band-could-be-your-life_1/index.html,2026-08-24T15:56:02.287888+00:00
+Zero to One,£37.97,1.9,True,CompetitorB,https://books.toscrape.com/catalogue/zero-to-one_1/index.html,2026-08-24T15:21:30.287888+00:00
+Zero to One,£34.78,1.9,True,CompetitorC,https://books.toscrape.com/catalogue/zero-to-one_1/index.html,2026-08-24T14:59:12.287888+00:00
+The Coming Woman,£12.83,3.9,True,CompetitorA,https://books.toscrape.com/catalogue/the-coming-woman_1/index.html,2026-08-24T16:06:36.287888+00:00
+How Music Works,£45.84,4.8,True,CompetitorA,https://books.toscrape.com/catalogue/how-music-works_1/index.html,2026-08-24T14:17:12.287888+00:00
+Good to Great,£47.93,5.0,True,CompetitorA,https://books.toscrape.com/catalogue/good-to-great_1/index.html,2026-08-24T15:27:25.287888+00:00
+The Four Agreements,£41.47,3.2,True,CompetitorB,https://books.toscrape.com/catalogue/the-four-agreements_1/index.html,2026-08-24T15:11:50.287888+00:00
+America's Cradle of Quarterbacks,£13.34,4.7,True,CompetitorC,https://books.toscrape.com/catalogue/america's-cradle-of-quarterbacks_1/index.html,2026-08-24T15:59:20.287888+00:00
+Wall and Piece,£34.78,2.0,True,CompetitorB,https://books.toscrape.com/catalogue/wall-and-piece_1/index.html,2026-08-24T14:34:05.287888+00:00
+Sapiens,£47.13,3.6,True,CompetitorC,https://books.toscrape.com/catalogue/sapiens_1/index.html,2026-08-24T15:55:00.287888+00:00
+Sapiens,£41.21,3.6,True,CompetitorB,https://books.toscrape.com/catalogue/sapiens_1/index.html,2026-08-24T15:00:24.287888+00:00
+Shakespeare's Sonnets,£37.6,3.6,True,CompetitorA,https://books.toscrape.com/catalogue/shakespeare's-sonnets_1/index.html,2026-08-24T14:31:43.287888+00:00
+America's Cradle of Quarterbacks,£12.7,4.7,True,CompetitorA,https://books.toscrape.com/catalogue/america's-cradle-of-quarterbacks_1/index.html,2026-08-24T15:29:13.287888+00:00
+How Music Works,Â£38.24,4.8,True,CompetitorB,https://books.toscrape.com/catalogue/how-music-works_1/index.html,2026-08-24T16:00:20.287888+00:00
+Digital Minimalism,£42.08,4.9,False,CompetitorC,https://books.toscrape.com/catalogue/digital-minimalism_1/index.html,2026-08-24T15:10:54.287888+00:00
+Sharp Objects,£17.95,4.7,True,CompetitorC,https://books.toscrape.com/catalogue/sharp-objects_1/index.html,2026-08-24T15:39:17.287888+00:00
+Sharp Objects,£18.2,4.7,True,CompetitorB,https://books.toscrape.com/catalogue/sharp-objects_1/index.html,2026-08-24T14:53:18.287888+00:00
+Chase Me,£16.9,2.3,True,CompetitorA,https://books.toscrape.com/catalogue/chase-me_1/index.html,2026-08-24T14:15:29.287888+00:00
+Foolproof Preserving,£28.87,4.5,True,CompetitorA,https://books.toscrape.com/catalogue/foolproof-preserving_1/index.html,2026-08-24T15:21:30.287888+00:00
+Mesaerion,£41.78,1.1,True,CompetitorC,https://books.toscrape.com/catalogue/mesaerion_1/index.html,2026-08-24T14:56:28.287888+00:00
+Sharp Objects,£20.09,4.7,True,CompetitorA,https://books.toscrape.com/catalogue/sharp-objects_1/index.html,2026-08-24T15:24:30.287888+00:00
+In Her Wake,£43.19,1.8,True,CompetitorA,https://books.toscrape.com/catalogue/in-her-wake_1/index.html,2026-08-24T16:12:48.287888+00:00
+Soumission,£25.43,2.1,True,CompetitorA,https://books.toscrape.com/catalogue/soumission_1/index.html,2026-08-24T14:39:35.287888+00:00
+Aladdin,£14.24,2.8,True,CompetitorB,https://books.toscrape.com/catalogue/aladdin_1/index.html,2026-08-24T15:59:45.287888+00:00
+Foolproof Preserving,£24.56,4.5,False,CompetitorC,https://books.toscrape.com/catalogue/foolproof-preserving_1/index.html,2026-08-24T14:35:34.287888+00:00
+Rip it Up and Start Again,£36.54,4.4,True,CompetitorC,https://books.toscrape.com/catalogue/rip-it-up-and-start-again_1/index.html,2026-08-24T14:31:31.287888+00:00
+The Innovators,£45.64,1.4,True,CompetitorC,https://books.toscrape.com/catalogue/the-innovators_1/index.html,2026-08-24T14:59:02.287888+00:00
+Worlds Elsewhere,£48.59,2.1,True,CompetitorA,https://books.toscrape.com/catalogue/worlds-elsewhere_1/index.html,2026-08-24T14:24:33.287888+00:00
+Creativity Inc,Â£11.16,3.5,True,CompetitorB,https://books.toscrape.com/catalogue/creativity-inc_1/index.html,2026-08-24T15:02:58.287888+00:00
+The Power of Now,£17.66,2.5,True,CompetitorA,https://books.toscrape.com/catalogue/the-power-of-now_1/index.html,2026-08-24T14:20:38.287888+00:00
+The Black Maria,£12.09,2.5,True,CompetitorB,https://books.toscrape.com/catalogue/the-black-maria_1/index.html,2026-08-24T14:24:45.287888+00:00
+Olio,£21.68,1.9,True,CompetitorB,https://books.toscrape.com/catalogue/olio_1/index.html,2026-08-24T14:53:56.287888+00:00
+The Dirty Little Secrets,£56.61,1.7,True,CompetitorA,https://books.toscrape.com/catalogue/the-dirty-little-secrets_1/index.html,2026-08-24T14:23:06.287888+00:00
+Aladdin,£12.46,2.8,True,CompetitorA,https://books.toscrape.com/catalogue/aladdin_1/index.html,2026-08-24T16:11:37.287888+00:00
+Start with Why,£53.48,1.4,True,CompetitorC,https://books.toscrape.com/catalogue/start-with-why_1/index.html,2026-08-24T15:26:03.287888+00:00
+Essentialism,£22.91,3.1,True,CompetitorA,https://books.toscrape.com/catalogue/essentialism_1/index.html,2026-08-24T14:47:31.287888+00:00
+Rip it Up and Start Again,£43.47,4.4,True,CompetitorA,https://books.toscrape.com/catalogue/rip-it-up-and-start-again_1/index.html,2026-08-24T14:44:27.287888+00:00
+America's Cradle of Quarterbacks,£13.86,4.7,True,CompetitorB,https://books.toscrape.com/catalogue/america's-cradle-of-quarterbacks_1/index.html,2026-08-24T16:12:49.287888+00:00
+Set Me Free,£11.83,3.2,True,CompetitorC,https://books.toscrape.com/catalogue/set-me-free_1/index.html,2026-08-24T15:27:41.287888+00:00
+Our Band Could Be Your Life,£36.12,4.1,True,CompetitorB,https://books.toscrape.com/catalogue/our-band-could-be-your-life_1/index.html,2026-08-24T15:19:48.287888+00:00
+Our Band Could Be Your Life,£34.93,4.1,True,CompetitorA,https://books.toscrape.com/catalogue/our-band-could-be-your-life_1/index.html,2026-08-24T14:48:22.287888+00:00
+Start with Why,£50.12,1.4,True,CompetitorB,https://books.toscrape.com/catalogue/start-with-why_1/index.html,2026-08-24T16:13:33.287888+00:00
+Make Time,£23.2,4.4,True,CompetitorC,https://books.toscrape.com/catalogue/make-time_1/index.html,2026-08-24T14:31:14.287888+00:00
+Atomic Habits,£44.91,2.1,True,CompetitorC,https://books.toscrape.com/catalogue/atomic-habits_1/index.html,2026-08-24T15:43:37.287888+00:00
+The Alchemist,£21.25,4.2,False,CompetitorC,https://books.toscrape.com/catalogue/the-alchemist_1/index.html,2026-08-24T14:27:13.287888+00:00
+Shakespeare's Sonnets,,3.6,True,CompetitorC,https://books.toscrape.com/catalogue/shakespeare's-sonnets_1/index.html,2026-08-24T15:10:24.287888+00:00
+Meditations,£26.13,2.7,True,CompetitorB,https://books.toscrape.com/catalogue/meditations_1/index.html,2026-08-24T14:32:26.287888+00:00
+Man's Search for Meaning,£13.48,1.3,True,CompetitorB,https://books.toscrape.com/catalogue/man's-search-for-meaning_1/index.html,2026-08-24T14:50:11.287888+00:00
+Starving Hearts,£22.39,5.0,True,CompetitorA,https://books.toscrape.com/catalogue/starving-hearts_1/index.html,2026-08-24T15:09:40.287888+00:00
+A Light in the Attic,£43.0,2.5,True,CompetitorB,https://books.toscrape.com/catalogue/a-light-in-the-attic_1/index.html,2026-08-24T14:29:57.287888+00:00
+Meditations,£23.44,2.7,True,CompetitorA,https://books.toscrape.com/catalogue/meditations_1/index.html,2026-08-24T14:35:33.287888+00:00
+Thinking Fast and Slow,Â£60.71,4.6,True,CompetitorA,https://books.toscrape.com/catalogue/thinking-fast-and-slow_1/index.html,2026-08-24T15:32:04.287888+00:00
+Stillness is the Key,£15.76,5.0,True,CompetitorB,https://books.toscrape.com/catalogue/stillness-is-the-key_1/index.html,2026-08-24T14:57:47.287888+00:00
+The Black Maria,£12.86,2.5,True,CompetitorA,https://books.toscrape.com/catalogue/the-black-maria_1/index.html,2026-08-24T14:44:07.287888+00:00
+The Requiem Red,£41.57,3.4,True,CompetitorC,https://books.toscrape.com/catalogue/the-requiem-red_1/index.html,2026-08-24T14:53:16.287888+00:00
+A Light in the Attic,£42.06,2.5,True,CompetitorC,https://books.toscrape.com/catalogue/a-light-in-the-attic_1/index.html,2026-08-24T15:24:16.287888+00:00
+Libertarianism,£53.16,2.3,True,CompetitorA,https://books.toscrape.com/catalogue/libertarianism_1/index.html,2026-08-24T16:12:50.287888+00:00
+Tipping the Velvet,£12.03,1.8,True,CompetitorA,https://books.toscrape.com/catalogue/tipping-the-velvet_1/index.html,2026-08-24T14:15:38.287888+00:00
+The Boys in the Boat,£31.58,1.7,True,CompetitorC,https://books.toscrape.com/catalogue/the-boys-in-the-boat_1/index.html,2026-08-24T14:52:55.287888+00:00
+Mesaerion,£36.69,1.1,True,CompetitorB,https://books.toscrape.com/catalogue/mesaerion_1/index.html,2026-08-24T15:57:45.287888+00:00
+Deep Work,£33.0,3.3,False,CompetitorB,https://books.toscrape.com/catalogue/deep-work_1/index.html,2026-08-24T15:59:43.287888+00:00
+The Dirty Little Secrets,£43.2,1.7,True,CompetitorB,https://books.toscrape.com/catalogue/the-dirty-little-secrets_1/index.html,2026-08-24T15:14:46.287888+00:00
+Set Me Free,£10.34,3.2,True,CompetitorA,https://books.toscrape.com/catalogue/set-me-free_1/index.html,2026-08-24T15:35:32.287888+00:00
+Scott Pilgrim's Precious,£18.06,3.7,True,CompetitorC,https://books.toscrape.com/catalogue/scott-pilgrim's-precious_1/index.html,2026-08-24T15:17:09.287888+00:00
+Meditations,£21.74,2.7,True,CompetitorC,https://books.toscrape.com/catalogue/meditations_1/index.html,2026-08-24T15:25:27.287888+00:00
+Rip it Up and Start Again,£43.17,4.4,True,CompetitorB,https://books.toscrape.com/catalogue/rip-it-up-and-start-again_1/index.html,2026-08-24T15:38:01.287888+00:00
+Olio,£21.62,1.9,False,CompetitorA,https://books.toscrape.com/catalogue/olio_1/index.html,2026-08-24T15:14:03.287888+00:00
+Sapiens,£44.55,3.6,True,CompetitorA,https://books.toscrape.com/catalogue/sapiens_1/index.html,2026-08-24T16:01:30.287888+00:00
+Scott Pilgrim's Precious,£19.96,3.7,True,CompetitorB,https://books.toscrape.com/catalogue/scott-pilgrim's-precious_1/index.html,2026-08-24T15:30:00.287888+00:00
+Libertarianism,£39.65,2.3,True,CompetitorC,https://books.toscrape.com/catalogue/libertarianism_1/index.html,2026-08-24T15:30:45.287888+00:00
+Thinking Fast and Slow,£55.01,4.6,True,CompetitorB,https://books.toscrape.com/catalogue/thinking-fast-and-slow_1/index.html,2026-08-24T15:08:26.287888+00:00
+How Music Works,£47.2,4.8,False,CompetitorC,https://books.toscrape.com/catalogue/how-music-works_1/index.html,2026-08-24T14:24:07.287888+00:00
+Soumission,£19.73,2.1,True,CompetitorC,https://books.toscrape.com/catalogue/soumission_1/index.html,2026-08-24T15:51:46.287888+00:00
+The Black Maria,£11.53,2.5,True,CompetitorC,https://books.toscrape.com/catalogue/the-black-maria_1/index.html,2026-08-24T15:10:41.287888+00:00
+The Innovators,£39.68,1.4,True,CompetitorB,https://books.toscrape.com/catalogue/the-innovators_1/index.html,2026-08-24T15:12:45.287888+00:00
+Starving Hearts,£22.51,5.0,True,CompetitorB,https://books.toscrape.com/catalogue/starving-hearts_1/index.html,2026-08-24T14:32:12.287888+00:00
+The Power of Now,£22.12,2.5,True,CompetitorB,https://books.toscrape.com/catalogue/the-power-of-now_1/index.html,2026-08-24T14:30:50.287888+00:00
+The Innovators,£38.76,1.4,True,CompetitorA,https://books.toscrape.com/catalogue/the-innovators_1/index.html,2026-08-24T14:27:48.287888+00:00
+The Requiem Red,£45.58,3.4,True,CompetitorA,https://books.toscrape.com/catalogue/the-requiem-red_1/index.html,2026-08-24T14:30:28.287888+00:00
+Soumission,£21.37,2.1,True,CompetitorB,https://books.toscrape.com/catalogue/soumission_1/index.html,2026-08-24T15:45:18.287888+00:00
+Make Time,£24.85,4.4,True,CompetitorB,https://books.toscrape.com/catalogue/make-time_1/index.html,2026-08-24T15:32:28.287888+00:00
+Wall and Piece,£38.23,2.0,False,CompetitorA,https://books.toscrape.com/catalogue/wall-and-piece_1/index.html,2026-08-24T15:32:58.287888+00:00
+Make Time,£23.88,4.4,True,CompetitorA,https://books.toscrape.com/catalogue/make-time_1/index.html,2026-08-24T15:46:39.287888+00:00
+Chase Me,£17.09,2.3,True,CompetitorB,https://books.toscrape.com/catalogue/chase-me_1/index.html,2026-08-24T15:17:31.287888+00:00
+The Four Agreements,£42.79,3.2,True,CompetitorA,https://books.toscrape.com/catalogue/the-four-agreements_1/index.html,2026-08-24T15:34:53.287888+00:00
+Shoe Dog,£35.57,1.2,True,CompetitorB,https://books.toscrape.com/catalogue/shoe-dog_1/index.html,2026-08-24T14:59:49.287888+00:00
+Black Dust,£60.8,3.6,True,CompetitorA,https://books.toscrape.com/catalogue/black-dust_1/index.html,2026-08-24T15:12:57.287888+00:00
+Creativity Inc,£12.55,3.5,True,CompetitorA,https://books.toscrape.com/catalogue/creativity-inc_1/index.html,2026-08-24T14:33:03.287888+00:00
+The Boys in the Boat,£25.03,1.7,True,CompetitorB,https://books.toscrape.com/catalogue/the-boys-in-the-boat_1/index.html,2026-08-24T15:48:58.287888+00:00
+The Hard Thing,£41.64,3.0,True,CompetitorC,https://books.toscrape.com/catalogue/the-hard-thing_1/index.html,2026-08-24T15:46:59.287888+00:00
+The Power of Now,£19.95,2.5,True,CompetitorC,https://books.toscrape.com/catalogue/the-power-of-now_1/index.html,2026-08-24T15:40:35.287888+00:00
+Essentialism,£23.02,3.1,True,CompetitorB,https://books.toscrape.com/catalogue/essentialism_1/index.html,2026-08-24T14:42:16.287888+00:00
+Thinking Fast and Slow,£50.69,4.6,True,CompetitorC,https://books.toscrape.com/catalogue/thinking-fast-and-slow_1/index.html,2026-08-24T14:32:10.287888+00:00
+The Alchemist,£21.09,4.2,True,CompetitorA,https://books.toscrape.com/catalogue/the-alchemist_1/index.html,2026-08-24T15:13:35.287888+00:00
+Man's Search for Meaning,£13.78,1.3,False,CompetitorA,https://books.toscrape.com/catalogue/man's-search-for-meaning_1/index.html,2026-08-24T14:32:36.287888+00:00
+Shakespeare's Sonnets,£34.9,3.6,True,CompetitorB,https://books.toscrape.com/catalogue/shakespeare's-sonnets_1/index.html,2026-08-24T15:10:08.287888+00:00
+Good to Great,,5.0,True,CompetitorC,https://books.toscrape.com/catalogue/good-to-great_1/index.html,2026-08-24T15:47:15.287888+00:00
+The Coming Woman,£14.35,3.9,True,CompetitorB,https://books.toscrape.com/catalogue/the-coming-woman_1/index.html,2026-08-24T14:49:58.287888+00:00
+It's Only the Himalayas,£9.08,2.1,False,CompetitorA,https://books.toscrape.com/catalogue/it's-only-the-himalayas_1/index.html,2026-08-24T14:40:15.287888+00:00
+Starving Hearts,£19.77,5.0,True,CompetitorC,https://books.toscrape.com/catalogue/starving-hearts_1/index.html,2026-08-24T15:22:12.287888+00:00
+Creativity Inc,£12.68,3.5,True,CompetitorC,https://books.toscrape.com/catalogue/creativity-inc_1/index.html,2026-08-24T14:54:33.287888+00:00
+The Lean Startup,£29.9,2.6,True,CompetitorB,https://books.toscrape.com/catalogue/the-lean-startup_1/index.html,2026-08-24T15:29:45.287888+00:00
+Essentialism,£22.09,3.1,True,CompetitorC,https://books.toscrape.com/catalogue/essentialism_1/index.html,2026-08-24T15:38:19.287888+00:00
+Birdsong,£28.55,2.6,True,CompetitorB,https://books.toscrape.com/catalogue/birdsong_1/index.html,2026-08-24T15:24:07.287888+00:00
+The Coming Woman,£13.23,3.9,True,CompetitorC,https://books.toscrape.com/catalogue/the-coming-woman_1/index.html,2026-08-24T15:03:38.287888+00:00
+Start with Why,£43.43,1.4,True,CompetitorA,https://books.toscrape.com/catalogue/start-with-why_1/index.html,2026-08-24T14:52:23.287888+00:00
+The Alchemist,£18.58,4.2,False,CompetitorB,https://books.toscrape.com/catalogue/the-alchemist_1/index.html,2026-08-24T14:19:26.287888+00:00
+Foolproof Preserving,£28.24,4.5,True,CompetitorB,https://books.toscrape.com/catalogue/foolproof-preserving_1/index.html,2026-08-24T15:50:12.287888+00:00
+A Light in the Attic,£33.09,2.5,True,CompetitorA,https://books.toscrape.com/catalogue/a-light-in-the-attic_1/index.html,2026-08-24T14:51:37.287888+00:00
+Libertarianism,£42.73,2.3,False,CompetitorB,https://books.toscrape.com/catalogue/libertarianism_1/index.html,2026-08-24T14:21:30.287888+00:00
+Wall and Piece,£34.84,2.0,True,CompetitorC,https://books.toscrape.com/catalogue/wall-and-piece_1/index.html,2026-08-24T15:17:11.287888+00:00
+The Hard Thing,£41.69,3.0,True,CompetitorB,https://books.toscrape.com/catalogue/the-hard-thing_1/index.html,2026-08-24T15:08:59.287888+00:00
+Man's Search for Meaning,,1.3,True,CompetitorC,https://books.toscrape.com/catalogue/man's-search-for-meaning_1/index.html,2026-08-24T15:18:16.287888+00:00
+In Her Wake,£51.62,1.8,True,CompetitorB,https://books.toscrape.com/catalogue/in-her-wake_1/index.html,2026-08-24T15:09:45.287888+00:00
+Mesaerion,£34.92,1.1,False,CompetitorA,https://books.toscrape.com/catalogue/mesaerion_1/index.html,2026-08-24T15:44:25.287888+00:00
+The Lean Startup,£31.05,2.6,True,CompetitorA,https://books.toscrape.com/catalogue/the-lean-startup_1/index.html,2026-08-24T15:02:51.287888+00:00
+Stillness is the Key,£14.3,5.0,False,CompetitorC,https://books.toscrape.com/catalogue/stillness-is-the-key_1/index.html,2026-08-24T14:54:31.287888+00:00
+Digital Minimalism,£42.83,4.9,True,CompetitorA,https://books.toscrape.com/catalogue/digital-minimalism_1/index.html,2026-08-24T14:18:35.287888+00:00
+Digital Minimalism,£33.7,4.9,False,CompetitorB,https://books.toscrape.com/catalogue/digital-minimalism_1/index.html,2026-08-24T16:00:40.287888+00:00
+The Hard Thing,£32.24,3.0,True,CompetitorA,https://books.toscrape.com/catalogue/the-hard-thing_1/index.html,2026-08-24T16:15:05.287888+00:00
+Olio,£19.83,1.9,True,CompetitorC,https://books.toscrape.com/catalogue/olio_1/index.html,2026-08-24T14:53:50.287888+00:00
+Set Me Free,£11.85,3.2,True,CompetitorB,https://books.toscrape.com/catalogue/set-me-free_1/index.html,2026-08-24T15:06:57.287888+00:00
+In Her Wake,£51.43,1.8,True,CompetitorC,https://books.toscrape.com/catalogue/in-her-wake_1/index.html,2026-08-24T14:40:22.287888+00:00
+Chase Me,£18.59,2.3,True,CompetitorC,https://books.toscrape.com/catalogue/chase-me_1/index.html,2026-08-24T15:31:23.287888+00:00
+The Dirty Little Secrets,£55.89,1.7,True,CompetitorC,https://books.toscrape.com/catalogue/the-dirty-little-secrets_1/index.html,2026-08-24T15:06:56.287888+00:00
+It's Only the Himalayas,£9.5,2.1,False,CompetitorB,https://books.toscrape.com/catalogue/it's-only-the-himalayas_1/index.html,2026-08-24T15:11:47.287888+00:00
+The Four Agreements,£40.36,3.2,True,CompetitorC,https://books.toscrape.com/catalogue/the-four-agreements_1/index.html,2026-08-24T15:35:43.287888+00:00
+Black Dust,£47.23,3.6,True,CompetitorB,https://books.toscrape.com/catalogue/black-dust_1/index.html,2026-08-24T14:58:31.287888+00:00
+Aladdin,£13.09,2.8,True,CompetitorC,https://books.toscrape.com/catalogue/aladdin_1/index.html,2026-08-24T14:38:55.287888+00:00
+Shoe Dog,£33.62,1.2,True,CompetitorA,https://books.toscrape.com/catalogue/shoe-dog_1/index.html,2026-08-24T16:11:39.287888+00:00
+Scott Pilgrim's Precious,£17.36,3.7,True,CompetitorA,https://books.toscrape.com/catalogue/scott-pilgrim's-precious_1/index.html,2026-08-24T14:19:29.287888+00:00
+Atomic Habits,£43.68,2.1,True,CompetitorA,https://books.toscrape.com/catalogue/atomic-habits_1/index.html,2026-08-24T14:58:05.287888+00:00
+Tipping the Velvet,£10.74,1.8,True,CompetitorB,https://books.toscrape.com/catalogue/tipping-the-velvet_1/index.html,2026-08-24T15:18:02.287888+00:00

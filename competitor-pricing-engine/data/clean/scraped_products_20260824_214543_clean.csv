@@ -1,0 +1,151 @@
+title,price_gbp,rating,in_stock,competitor,source_url,scraped_at,price_usd,price_eur
+Scott Pilgrim's Precious,17.36,3.7,True,Competitora,https://books.toscrape.com/catalogue/scott-pilgrim's-precious_1/index.html,2026-08-24 14:20:00.267008+00:00,22.05,20.48
+Atomic Habits,43.68,2.1,True,Competitora,https://books.toscrape.com/catalogue/atomic-habits_1/index.html,2026-08-24 14:58:36.267008+00:00,55.47,51.54
+Tipping the Velvet,10.74,1.8,True,Competitorb,https://books.toscrape.com/catalogue/tipping-the-velvet_1/index.html,2026-08-24 15:18:33.267008+00:00,13.64,12.67
+Tipping the Velvet,31.06,1.8,True,Competitorc,https://books.toscrape.com/catalogue/tipping-the-velvet_1/index.html,2026-08-24 15:22:38.267008+00:00,39.45,36.65
+Good to Great,40.63,5.0,True,Competitorb,https://books.toscrape.com/catalogue/good-to-great_1/index.html,2026-08-24 14:38:15.267008+00:00,51.6,47.94
+Zero to One,38.82,1.9,True,Competitora,https://books.toscrape.com/catalogue/zero-to-one_1/index.html,2026-08-24 16:09:33.267008+00:00,49.3,45.81
+It's Only the Himalayas,9.65,2.1,True,Competitorc,https://books.toscrape.com/catalogue/it's-only-the-himalayas_1/index.html,2026-08-24 14:29:43.267008+00:00,12.26,11.39
+Worlds Elsewhere,52.15,2.1,True,Competitorb,https://books.toscrape.com/catalogue/worlds-elsewhere_1/index.html,2026-08-24 15:53:08.267008+00:00,66.23,61.54
+The Requiem Red,45.78,3.4,True,Competitorb,https://books.toscrape.com/catalogue/the-requiem-red_1/index.html,2026-08-24 14:51:57.267008+00:00,58.14,54.02
+Birdsong,24.25,2.6,True,Competitorc,https://books.toscrape.com/catalogue/birdsong_1/index.html,2026-08-24 15:14:15.267008+00:00,30.8,28.62
+Black Dust,57.28,3.6,True,Competitorc,https://books.toscrape.com/catalogue/black-dust_1/index.html,2026-08-24 15:27:03.267008+00:00,72.75,67.59
+Birdsong,26.63,2.6,True,Competitora,https://books.toscrape.com/catalogue/birdsong_1/index.html,2026-08-24 15:22:09.267008+00:00,33.82,31.42
+Deep Work,31.45,3.3,True,Competitora,https://books.toscrape.com/catalogue/deep-work_1/index.html,2026-08-24 14:58:53.267008+00:00,39.94,37.11
+Worlds Elsewhere,48.89,2.1,True,Competitorc,https://books.toscrape.com/catalogue/worlds-elsewhere_1/index.html,2026-08-24 15:19:52.267008+00:00,62.09,57.69
+Stillness is the Key,16.29,5.0,False,Competitora,https://books.toscrape.com/catalogue/stillness-is-the-key_1/index.html,2026-08-24 16:02:13.267008+00:00,20.69,19.22
+The Lean Startup,26.78,2.6,True,Competitorc,https://books.toscrape.com/catalogue/the-lean-startup_1/index.html,2026-08-24 15:29:26.267008+00:00,34.01,31.6
+Deep Work,30.54,3.3,False,Competitorc,https://books.toscrape.com/catalogue/deep-work_1/index.html,2026-08-24 16:03:56.267008+00:00,38.79,36.04
+The Boys in the Boat,25.24,1.7,False,Competitora,https://books.toscrape.com/catalogue/the-boys-in-the-boat_1/index.html,2026-08-24 15:20:36.267008+00:00,32.05,29.78
+Atomic Habits,41.65,2.1,True,Competitorb,https://books.toscrape.com/catalogue/atomic-habits_1/index.html,2026-08-24 15:13:04.267008+00:00,52.9,49.15
+Shoe Dog,37.62,1.2,True,Competitorc,https://books.toscrape.com/catalogue/shoe-dog_1/index.html,2026-08-24 15:42:23.267008+00:00,47.78,44.39
+Our Band Could Be Your Life,37.04,4.1,True,Competitorc,https://books.toscrape.com/catalogue/our-band-could-be-your-life_1/index.html,2026-08-24 15:56:33.267008+00:00,47.04,43.71
+Zero to One,37.97,1.9,True,Competitorb,https://books.toscrape.com/catalogue/zero-to-one_1/index.html,2026-08-24 15:22:01.267008+00:00,48.22,44.8
+Zero to One,34.78,1.9,True,Competitorc,https://books.toscrape.com/catalogue/zero-to-one_1/index.html,2026-08-24 14:59:43.267008+00:00,44.17,41.04
+The Coming Woman,12.83,3.9,True,Competitora,https://books.toscrape.com/catalogue/the-coming-woman_1/index.html,2026-08-24 16:07:07.267008+00:00,16.29,15.14
+How Music Works,45.84,4.8,True,Competitora,https://books.toscrape.com/catalogue/how-music-works_1/index.html,2026-08-24 14:17:43.267008+00:00,58.22,54.09
+Good to Great,47.93,5.0,True,Competitora,https://books.toscrape.com/catalogue/good-to-great_1/index.html,2026-08-24 15:27:56.267008+00:00,60.87,56.56
+The Four Agreements,41.47,3.2,True,Competitorb,https://books.toscrape.com/catalogue/the-four-agreements_1/index.html,2026-08-24 15:12:21.267008+00:00,52.67,48.93
+America's Cradle of Quarterbacks,13.34,4.7,True,Competitorc,https://books.toscrape.com/catalogue/america's-cradle-of-quarterbacks_1/index.html,2026-08-24 15:59:51.267008+00:00,16.94,15.74
+Wall and Piece,34.78,2.0,True,Competitorb,https://books.toscrape.com/catalogue/wall-and-piece_1/index.html,2026-08-24 14:34:36.267008+00:00,44.17,41.04
+Sapiens,47.13,3.6,True,Competitorc,https://books.toscrape.com/catalogue/sapiens_1/index.html,2026-08-24 15:55:31.267008+00:00,59.86,55.61
+Sapiens,41.21,3.6,True,Competitorb,https://books.toscrape.com/catalogue/sapiens_1/index.html,2026-08-24 15:00:55.267008+00:00,52.34,48.63
+Shakespeare's Sonnets,37.6,3.6,True,Competitora,https://books.toscrape.com/catalogue/shakespeare's-sonnets_1/index.html,2026-08-24 14:32:14.267008+00:00,47.75,44.37
+America's Cradle of Quarterbacks,12.7,4.7,True,Competitora,https://books.toscrape.com/catalogue/america's-cradle-of-quarterbacks_1/index.html,2026-08-24 15:29:44.267008+00:00,16.13,14.99
+How Music Works,38.24,4.8,True,Competitorb,https://books.toscrape.com/catalogue/how-music-works_1/index.html,2026-08-24 16:00:51.267008+00:00,48.56,45.12
+Digital Minimalism,42.08,4.9,False,Competitorc,https://books.toscrape.com/catalogue/digital-minimalism_1/index.html,2026-08-24 15:11:25.267008+00:00,53.44,49.65
+Sharp Objects,17.95,4.7,True,Competitorc,https://books.toscrape.com/catalogue/sharp-objects_1/index.html,2026-08-24 15:39:48.267008+00:00,22.8,21.18
+Sharp Objects,18.2,4.7,True,Competitorb,https://books.toscrape.com/catalogue/sharp-objects_1/index.html,2026-08-24 14:53:49.267008+00:00,23.11,21.48
+Chase Me,16.9,2.3,True,Competitora,https://books.toscrape.com/catalogue/chase-me_1/index.html,2026-08-24 14:16:00.267008+00:00,21.46,19.94
+Foolproof Preserving,28.87,4.5,True,Competitora,https://books.toscrape.com/catalogue/foolproof-preserving_1/index.html,2026-08-24 15:22:01.267008+00:00,36.66,34.07
+Mesaerion,41.78,1.1,True,Competitorc,https://books.toscrape.com/catalogue/mesaerion_1/index.html,2026-08-24 14:56:59.267008+00:00,53.06,49.3
+Sharp Objects,20.09,4.7,True,Competitora,https://books.toscrape.com/catalogue/sharp-objects_1/index.html,2026-08-24 15:25:01.267008+00:00,25.51,23.71
+In Her Wake,43.19,1.8,True,Competitora,https://books.toscrape.com/catalogue/in-her-wake_1/index.html,2026-08-24 16:13:19.267008+00:00,54.85,50.96
+Soumission,25.43,2.1,True,Competitora,https://books.toscrape.com/catalogue/soumission_1/index.html,2026-08-24 14:40:06.267008+00:00,32.3,30.01
+Aladdin,14.24,2.8,True,Competitorb,https://books.toscrape.com/catalogue/aladdin_1/index.html,2026-08-24 16:00:16.267008+00:00,18.08,16.8
+Foolproof Preserving,24.56,4.5,False,Competitorc,https://books.toscrape.com/catalogue/foolproof-preserving_1/index.html,2026-08-24 14:36:05.267008+00:00,31.19,28.98
+Rip it Up and Start Again,36.54,4.4,True,Competitorc,https://books.toscrape.com/catalogue/rip-it-up-and-start-again_1/index.html,2026-08-24 14:32:02.267008+00:00,46.41,43.12
+The Innovators,45.64,1.4,True,Competitorc,https://books.toscrape.com/catalogue/the-innovators_1/index.html,2026-08-24 14:59:33.267008+00:00,57.96,53.86
+Worlds Elsewhere,48.59,2.1,True,Competitora,https://books.toscrape.com/catalogue/worlds-elsewhere_1/index.html,2026-08-24 14:25:04.267008+00:00,61.71,57.34
+Creativity Inc,11.16,3.5,True,Competitorb,https://books.toscrape.com/catalogue/creativity-inc_1/index.html,2026-08-24 15:03:29.267008+00:00,14.17,13.17
+The Power of Now,17.66,2.5,True,Competitora,https://books.toscrape.com/catalogue/the-power-of-now_1/index.html,2026-08-24 14:21:09.267008+00:00,22.43,20.84
+The Black Maria,12.09,2.5,True,Competitorb,https://books.toscrape.com/catalogue/the-black-maria_1/index.html,2026-08-24 14:25:16.267008+00:00,15.35,14.27
+Olio,21.68,1.9,True,Competitorb,https://books.toscrape.com/catalogue/olio_1/index.html,2026-08-24 14:54:27.267008+00:00,27.53,25.58
+The Dirty Little Secrets,56.61,1.7,True,Competitora,https://books.toscrape.com/catalogue/the-dirty-little-secrets_1/index.html,2026-08-24 14:23:37.267008+00:00,71.89,66.8
+Aladdin,12.46,2.8,True,Competitora,https://books.toscrape.com/catalogue/aladdin_1/index.html,2026-08-24 16:12:08.267008+00:00,15.82,14.7
+Start with Why,53.48,1.4,True,Competitorc,https://books.toscrape.com/catalogue/start-with-why_1/index.html,2026-08-24 15:26:34.267008+00:00,67.92,63.11
+Essentialism,22.91,3.1,True,Competitora,https://books.toscrape.com/catalogue/essentialism_1/index.html,2026-08-24 14:48:02.267008+00:00,29.1,27.03
+Rip it Up and Start Again,43.47,4.4,True,Competitora,https://books.toscrape.com/catalogue/rip-it-up-and-start-again_1/index.html,2026-08-24 14:44:58.267008+00:00,55.21,51.29
+America's Cradle of Quarterbacks,13.86,4.7,True,Competitorb,https://books.toscrape.com/catalogue/america's-cradle-of-quarterbacks_1/index.html,2026-08-24 16:13:20.267008+00:00,17.6,16.35
+Set Me Free,11.83,3.2,True,Competitorc,https://books.toscrape.com/catalogue/set-me-free_1/index.html,2026-08-24 15:28:12.267008+00:00,15.02,13.96
+Our Band Could Be Your Life,36.12,4.1,True,Competitorb,https://books.toscrape.com/catalogue/our-band-could-be-your-life_1/index.html,2026-08-24 15:20:19.267008+00:00,45.87,42.62
+Our Band Could Be Your Life,34.93,4.1,True,Competitora,https://books.toscrape.com/catalogue/our-band-could-be-your-life_1/index.html,2026-08-24 14:48:53.267008+00:00,44.36,41.22
+Start with Why,50.12,1.4,True,Competitorb,https://books.toscrape.com/catalogue/start-with-why_1/index.html,2026-08-24 16:14:04.267008+00:00,63.65,59.14
+Make Time,23.2,4.4,True,Competitorc,https://books.toscrape.com/catalogue/make-time_1/index.html,2026-08-24 14:31:45.267008+00:00,29.46,27.38
+Atomic Habits,44.91,2.1,True,Competitorc,https://books.toscrape.com/catalogue/atomic-habits_1/index.html,2026-08-24 15:44:08.267008+00:00,57.04,52.99
+The Alchemist,21.25,4.2,False,Competitorc,https://books.toscrape.com/catalogue/the-alchemist_1/index.html,2026-08-24 14:27:44.267008+00:00,26.99,25.08
+Shakespeare's Sonnets,31.06,3.6,True,Competitorc,https://books.toscrape.com/catalogue/shakespeare's-sonnets_1/index.html,2026-08-24 15:10:55.267008+00:00,39.45,36.65
+Meditations,26.13,2.7,True,Competitorb,https://books.toscrape.com/catalogue/meditations_1/index.html,2026-08-24 14:32:57.267008+00:00,33.19,30.83
+Man's Search for Meaning,13.48,1.3,True,Competitorb,https://books.toscrape.com/catalogue/man's-search-for-meaning_1/index.html,2026-08-24 14:50:42.267008+00:00,17.12,15.91
+Starving Hearts,22.39,5.0,True,Competitora,https://books.toscrape.com/catalogue/starving-hearts_1/index.html,2026-08-24 15:10:11.267008+00:00,28.44,26.42
+A Light in the Attic,43.0,2.5,True,Competitorb,https://books.toscrape.com/catalogue/a-light-in-the-attic_1/index.html,2026-08-24 14:30:28.267008+00:00,54.61,50.74
+Meditations,23.44,2.7,True,Competitora,https://books.toscrape.com/catalogue/meditations_1/index.html,2026-08-24 14:36:04.267008+00:00,29.77,27.66
+Thinking Fast and Slow,60.71,4.6,True,Competitora,https://books.toscrape.com/catalogue/thinking-fast-and-slow_1/index.html,2026-08-24 15:32:35.267008+00:00,77.1,71.64
+Stillness is the Key,15.76,5.0,True,Competitorb,https://books.toscrape.com/catalogue/stillness-is-the-key_1/index.html,2026-08-24 14:58:18.267008+00:00,20.02,18.6
+The Black Maria,12.86,2.5,True,Competitora,https://books.toscrape.com/catalogue/the-black-maria_1/index.html,2026-08-24 14:44:38.267008+00:00,16.33,15.17
+The Requiem Red,41.57,3.4,True,Competitorc,https://books.toscrape.com/catalogue/the-requiem-red_1/index.html,2026-08-24 14:53:47.267008+00:00,52.79,49.05
+A Light in the Attic,42.06,2.5,True,Competitorc,https://books.toscrape.com/catalogue/a-light-in-the-attic_1/index.html,2026-08-24 15:24:47.267008+00:00,53.42,49.63
+Libertarianism,53.16,2.3,True,Competitora,https://books.toscrape.com/catalogue/libertarianism_1/index.html,2026-08-24 16:13:21.267008+00:00,67.51,62.73
+Tipping the Velvet,12.03,1.8,True,Competitora,https://books.toscrape.com/catalogue/tipping-the-velvet_1/index.html,2026-08-24 14:16:09.267008+00:00,15.28,14.2
+The Boys in the Boat,31.58,1.7,True,Competitorc,https://books.toscrape.com/catalogue/the-boys-in-the-boat_1/index.html,2026-08-24 14:53:26.267008+00:00,40.11,37.26
+Mesaerion,36.69,1.1,True,Competitorb,https://books.toscrape.com/catalogue/mesaerion_1/index.html,2026-08-24 15:58:16.267008+00:00,46.6,43.29
+Deep Work,33.0,3.3,False,Competitorb,https://books.toscrape.com/catalogue/deep-work_1/index.html,2026-08-24 16:00:14.267008+00:00,41.91,38.94
+The Dirty Little Secrets,43.2,1.7,True,Competitorb,https://books.toscrape.com/catalogue/the-dirty-little-secrets_1/index.html,2026-08-24 15:15:17.267008+00:00,54.86,50.98
+Set Me Free,10.34,3.2,True,Competitora,https://books.toscrape.com/catalogue/set-me-free_1/index.html,2026-08-24 15:36:03.267008+00:00,13.13,12.2
+Scott Pilgrim's Precious,18.06,3.7,True,Competitorc,https://books.toscrape.com/catalogue/scott-pilgrim's-precious_1/index.html,2026-08-24 15:17:40.267008+00:00,22.94,21.31
+Meditations,21.74,2.7,True,Competitorc,https://books.toscrape.com/catalogue/meditations_1/index.html,2026-08-24 15:25:58.267008+00:00,27.61,25.65
+Rip it Up and Start Again,43.17,4.4,True,Competitorb,https://books.toscrape.com/catalogue/rip-it-up-and-start-again_1/index.html,2026-08-24 15:38:32.267008+00:00,54.83,50.94
+Olio,21.62,1.9,False,Competitora,https://books.toscrape.com/catalogue/olio_1/index.html,2026-08-24 15:14:34.267008+00:00,27.46,25.51
+Sapiens,44.55,3.6,True,Competitora,https://books.toscrape.com/catalogue/sapiens_1/index.html,2026-08-24 16:02:01.267008+00:00,56.58,52.57
+Scott Pilgrim's Precious,19.96,3.7,True,Competitorb,https://books.toscrape.com/catalogue/scott-pilgrim's-precious_1/index.html,2026-08-24 15:30:31.267008+00:00,25.35,23.55
+Libertarianism,39.65,2.3,True,Competitorc,https://books.toscrape.com/catalogue/libertarianism_1/index.html,2026-08-24 15:31:16.267008+00:00,50.36,46.79
+Thinking Fast and Slow,55.01,4.6,True,Competitorb,https://books.toscrape.com/catalogue/thinking-fast-and-slow_1/index.html,2026-08-24 15:08:57.267008+00:00,69.86,64.91
+How Music Works,47.2,4.8,False,Competitorc,https://books.toscrape.com/catalogue/how-music-works_1/index.html,2026-08-24 14:24:38.267008+00:00,59.94,55.7
+Soumission,19.73,2.1,True,Competitorc,https://books.toscrape.com/catalogue/soumission_1/index.html,2026-08-24 15:52:17.267008+00:00,25.06,23.28
+The Black Maria,11.53,2.5,True,Competitorc,https://books.toscrape.com/catalogue/the-black-maria_1/index.html,2026-08-24 15:11:12.267008+00:00,14.64,13.61
+The Innovators,39.68,1.4,True,Competitorb,https://books.toscrape.com/catalogue/the-innovators_1/index.html,2026-08-24 15:13:16.267008+00:00,50.39,46.82
+Starving Hearts,22.51,5.0,True,Competitorb,https://books.toscrape.com/catalogue/starving-hearts_1/index.html,2026-08-24 14:32:43.267008+00:00,28.59,26.56
+The Power of Now,22.12,2.5,True,Competitorb,https://books.toscrape.com/catalogue/the-power-of-now_1/index.html,2026-08-24 14:31:21.267008+00:00,28.09,26.1
+The Innovators,38.76,1.4,True,Competitora,https://books.toscrape.com/catalogue/the-innovators_1/index.html,2026-08-24 14:28:19.267008+00:00,49.23,45.74
+The Requiem Red,45.58,3.4,True,Competitora,https://books.toscrape.com/catalogue/the-requiem-red_1/index.html,2026-08-24 14:30:59.267008+00:00,57.89,53.78
+Soumission,21.37,2.1,True,Competitorb,https://books.toscrape.com/catalogue/soumission_1/index.html,2026-08-24 15:45:49.267008+00:00,27.14,25.22
+Make Time,24.85,4.4,True,Competitorb,https://books.toscrape.com/catalogue/make-time_1/index.html,2026-08-24 15:32:59.267008+00:00,31.56,29.32
+Wall and Piece,38.23,2.0,False,Competitora,https://books.toscrape.com/catalogue/wall-and-piece_1/index.html,2026-08-24 15:33:29.267008+00:00,48.55,45.11
+Make Time,23.88,4.4,True,Competitora,https://books.toscrape.com/catalogue/make-time_1/index.html,2026-08-24 15:47:10.267008+00:00,30.33,28.18
+Chase Me,17.09,2.3,True,Competitorb,https://books.toscrape.com/catalogue/chase-me_1/index.html,2026-08-24 15:18:02.267008+00:00,21.7,20.17
+The Four Agreements,42.79,3.2,True,Competitora,https://books.toscrape.com/catalogue/the-four-agreements_1/index.html,2026-08-24 15:35:24.267008+00:00,54.34,50.49
+Shoe Dog,35.57,1.2,True,Competitorb,https://books.toscrape.com/catalogue/shoe-dog_1/index.html,2026-08-24 15:00:20.267008+00:00,45.17,41.97
+Black Dust,60.8,3.6,True,Competitora,https://books.toscrape.com/catalogue/black-dust_1/index.html,2026-08-24 15:13:28.267008+00:00,77.22,71.74
+Creativity Inc,12.55,3.5,True,Competitora,https://books.toscrape.com/catalogue/creativity-inc_1/index.html,2026-08-24 14:33:34.267008+00:00,15.94,14.81
+The Boys in the Boat,25.03,1.7,True,Competitorb,https://books.toscrape.com/catalogue/the-boys-in-the-boat_1/index.html,2026-08-24 15:49:29.267008+00:00,31.79,29.54
+The Hard Thing,41.64,3.0,True,Competitorc,https://books.toscrape.com/catalogue/the-hard-thing_1/index.html,2026-08-24 15:47:30.267008+00:00,52.88,49.14
+The Power of Now,19.95,2.5,True,Competitorc,https://books.toscrape.com/catalogue/the-power-of-now_1/index.html,2026-08-24 15:41:06.267008+00:00,25.34,23.54
+Essentialism,23.02,3.1,True,Competitorb,https://books.toscrape.com/catalogue/essentialism_1/index.html,2026-08-24 14:42:47.267008+00:00,29.24,27.16
+Thinking Fast and Slow,50.69,4.6,True,Competitorc,https://books.toscrape.com/catalogue/thinking-fast-and-slow_1/index.html,2026-08-24 14:32:41.267008+00:00,64.38,59.81
+The Alchemist,21.09,4.2,True,Competitora,https://books.toscrape.com/catalogue/the-alchemist_1/index.html,2026-08-24 15:14:06.267008+00:00,26.78,24.89
+Man's Search for Meaning,13.78,1.3,False,Competitora,https://books.toscrape.com/catalogue/man's-search-for-meaning_1/index.html,2026-08-24 14:33:07.267008+00:00,17.5,16.26
+Shakespeare's Sonnets,34.9,3.6,True,Competitorb,https://books.toscrape.com/catalogue/shakespeare's-sonnets_1/index.html,2026-08-24 15:10:39.267008+00:00,44.32,41.18
+Good to Great,31.06,5.0,True,Competitorc,https://books.toscrape.com/catalogue/good-to-great_1/index.html,2026-08-24 15:47:46.267008+00:00,39.45,36.65
+The Coming Woman,14.35,3.9,True,Competitorb,https://books.toscrape.com/catalogue/the-coming-woman_1/index.html,2026-08-24 14:50:29.267008+00:00,18.22,16.93
+It's Only the Himalayas,9.08,2.1,False,Competitora,https://books.toscrape.com/catalogue/it's-only-the-himalayas_1/index.html,2026-08-24 14:40:46.267008+00:00,11.53,10.71
+Starving Hearts,19.77,5.0,True,Competitorc,https://books.toscrape.com/catalogue/starving-hearts_1/index.html,2026-08-24 15:22:43.267008+00:00,25.11,23.33
+Creativity Inc,12.68,3.5,True,Competitorc,https://books.toscrape.com/catalogue/creativity-inc_1/index.html,2026-08-24 14:55:04.267008+00:00,16.1,14.96
+The Lean Startup,29.9,2.6,True,Competitorb,https://books.toscrape.com/catalogue/the-lean-startup_1/index.html,2026-08-24 15:30:16.267008+00:00,37.97,35.28
+Essentialism,22.09,3.1,True,Competitorc,https://books.toscrape.com/catalogue/essentialism_1/index.html,2026-08-24 15:38:50.267008+00:00,28.05,26.07
+Birdsong,28.55,2.6,True,Competitorb,https://books.toscrape.com/catalogue/birdsong_1/index.html,2026-08-24 15:24:38.267008+00:00,36.26,33.69
+The Coming Woman,13.23,3.9,True,Competitorc,https://books.toscrape.com/catalogue/the-coming-woman_1/index.html,2026-08-24 15:04:09.267008+00:00,16.8,15.61
+Start with Why,43.43,1.4,True,Competitora,https://books.toscrape.com/catalogue/start-with-why_1/index.html,2026-08-24 14:52:54.267008+00:00,55.16,51.25
+The Alchemist,18.58,4.2,False,Competitorb,https://books.toscrape.com/catalogue/the-alchemist_1/index.html,2026-08-24 14:19:57.267008+00:00,23.6,21.92
+Foolproof Preserving,28.24,4.5,True,Competitorb,https://books.toscrape.com/catalogue/foolproof-preserving_1/index.html,2026-08-24 15:50:43.267008+00:00,35.86,33.32
+A Light in the Attic,33.09,2.5,True,Competitora,https://books.toscrape.com/catalogue/a-light-in-the-attic_1/index.html,2026-08-24 14:52:08.267008+00:00,42.02,39.05
+Libertarianism,42.73,2.3,False,Competitorb,https://books.toscrape.com/catalogue/libertarianism_1/index.html,2026-08-24 14:22:01.267008+00:00,54.27,50.42
+Wall and Piece,34.84,2.0,True,Competitorc,https://books.toscrape.com/catalogue/wall-and-piece_1/index.html,2026-08-24 15:17:42.267008+00:00,44.25,41.11
+The Hard Thing,41.69,3.0,True,Competitorb,https://books.toscrape.com/catalogue/the-hard-thing_1/index.html,2026-08-24 15:09:30.267008+00:00,52.95,49.19
+Man's Search for Meaning,31.06,1.3,True,Competitorc,https://books.toscrape.com/catalogue/man's-search-for-meaning_1/index.html,2026-08-24 15:18:47.267008+00:00,39.45,36.65
+In Her Wake,51.62,1.8,True,Competitorb,https://books.toscrape.com/catalogue/in-her-wake_1/index.html,2026-08-24 15:10:16.267008+00:00,65.56,60.91
+Mesaerion,34.92,1.1,False,Competitora,https://books.toscrape.com/catalogue/mesaerion_1/index.html,2026-08-24 15:44:56.267008+00:00,44.35,41.21
+The Lean Startup,31.05,2.6,True,Competitora,https://books.toscrape.com/catalogue/the-lean-startup_1/index.html,2026-08-24 15:03:22.267008+00:00,39.43,36.64
+Stillness is the Key,14.3,5.0,False,Competitorc,https://books.toscrape.com/catalogue/stillness-is-the-key_1/index.html,2026-08-24 14:55:02.267008+00:00,18.16,16.87
+Digital Minimalism,42.83,4.9,True,Competitora,https://books.toscrape.com/catalogue/digital-minimalism_1/index.html,2026-08-24 14:19:06.267008+00:00,54.39,50.54
+Digital Minimalism,33.7,4.9,False,Competitorb,https://books.toscrape.com/catalogue/digital-minimalism_1/index.html,2026-08-24 16:01:11.267008+00:00,42.8,39.77
+The Hard Thing,32.24,3.0,True,Competitora,https://books.toscrape.com/catalogue/the-hard-thing_1/index.html,2026-08-24 16:15:36.267008+00:00,40.94,38.04
+Olio,19.83,1.9,True,Competitorc,https://books.toscrape.com/catalogue/olio_1/index.html,2026-08-24 14:54:21.267008+00:00,25.18,23.4
+Set Me Free,11.85,3.2,True,Competitorb,https://books.toscrape.com/catalogue/set-me-free_1/index.html,2026-08-24 15:07:28.267008+00:00,15.05,13.98
+In Her Wake,51.43,1.8,True,Competitorc,https://books.toscrape.com/catalogue/in-her-wake_1/index.html,2026-08-24 14:40:53.267008+00:00,65.32,60.69
+Chase Me,18.59,2.3,True,Competitorc,https://books.toscrape.com/catalogue/chase-me_1/index.html,2026-08-24 15:31:54.267008+00:00,23.61,21.94
+The Dirty Little Secrets,55.89,1.7,True,Competitorc,https://books.toscrape.com/catalogue/the-dirty-little-secrets_1/index.html,2026-08-24 15:07:27.267008+00:00,70.98,65.95
+It's Only the Himalayas,9.5,2.1,False,Competitorb,https://books.toscrape.com/catalogue/it's-only-the-himalayas_1/index.html,2026-08-24 15:12:18.267008+00:00,12.06,11.21
+The Four Agreements,40.36,3.2,True,Competitorc,https://books.toscrape.com/catalogue/the-four-agreements_1/index.html,2026-08-24 15:36:14.267008+00:00,51.26,47.62
+Black Dust,47.23,3.6,True,Competitorb,https://books.toscrape.com/catalogue/black-dust_1/index.html,2026-08-24 14:59:02.267008+00:00,59.98,55.73
+Aladdin,13.09,2.8,True,Competitorc,https://books.toscrape.com/catalogue/aladdin_1/index.html,2026-08-24 14:39:26.267008+00:00,16.62,15.45
+Shoe Dog,33.62,1.2,True,Competitora,https://books.toscrape.com/catalogue/shoe-dog_1/index.html,2026-08-24 16:12:10.267008+00:00,42.7,39.67
