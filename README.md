@@ -51,23 +51,23 @@ Manual competitor price tracking is slow, error-prone, and doesn't scale. Static
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                  Competitor Pricing Engine                       │
-│                                                                  │
+│                  Competitor Pricing Engine                      │
+│                                                                 │
 │  ┌──────────┐   Raw CSV   ┌──────────┐   Clean CSV   ┌────────┐ │
 │  │ Scraper  │ ──────────► │ Cleaner  │ ────────────► │SQLite  │ │
 │  │ (BS4 +   │             │ (Pandas) │               │   DB   │ │
 │  │Requests) │             │10 steps  │               │(SQLAlch│ │
 │  └──────────┘             └──────────┘               └────┬───┘ │
-│                                                           │      │
+│                                                           │     │
 │  ┌──────────────────────┐                           ┌────▼───┐  │
 │  │   ML Pricing Model   │◄── Training data ─────────│ Query  │  │
 │  │   (XGBoost + Scaler) │                           │ Layer  │  │
 │  │   R² = 0.9999        │                           └────────┘  │
-│  └──────────┬───────────┘                                        │
-│             │ Inference                                          │
-│  ┌──────────▼───────────┐    REST API    ┌────────────────────┐  │
-│  │   FastAPI Backend    │ ◄────────────► │  Frontend Dashboard │  │
-│  │   (Uvicorn + CORS)   │               │  (HTML+CSS+Chart.js)│  │
+│  └──────────┬───────────┘                                       │
+│             │ Inference                                         │
+│  ┌──────────▼───────────┐    REST API    ┌────────────────────┐ │
+│  │   FastAPI Backend    │ ◄────────────► │  Frontend Dashboard│ │
+│  │   (Uvicorn + CORS)   │               │  (HTML+CSS+Chart.js)│ │
 │  └──────────────────────┘               └────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
 ```
