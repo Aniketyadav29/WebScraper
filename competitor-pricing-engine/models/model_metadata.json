@@ -1,0 +1,33 @@
+{
+  "model_name": "pricing_model.joblib",
+  "trained_at": "2026-08-25T16:55:44.658187+00:00",
+  "feature_cols": [
+    "our_price",
+    "avg_competitor_price",
+    "competitor_a_price",
+    "competitor_b_price",
+    "competitor_c_price",
+    "price_gap_pct",
+    "rating",
+    "in_stock",
+    "month",
+    "day_of_week",
+    "is_weekend",
+    "season",
+    "seasonal_demand",
+    "demand_score",
+    "price_vs_rating"
+  ],
+  "target_col": "optimal_price",
+  "metrics": {
+    "mae": 0.0594,
+    "rmse": 0.0844,
+    "r2": 0.9999,
+    "mape": 0.3173
+  },
+  "xgboost_params": {
+    "n_estimators": 500,
+    "learning_rate": 0.05,
+    "max_depth": 6
+  }
+}

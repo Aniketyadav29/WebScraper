@@ -26,3 +26,38 @@
 2026-08-25 21:57:13 | INFO     | DatabaseIngestion | Starting DB ingestion — 150 rows from 'None'
 2026-08-25 21:57:13 | INFO     | DatabaseIngestion | Upserted 50 unique products into 'products' table.
 2026-08-25 21:57:13 | INFO     | DatabaseIngestion | Ingestion complete — 150 price_history rows inserted.
+2026-08-25 22:24:26 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-25 22:24:27 | INFO     | SyntheticDataGenerator | Loading base product data from clean CSV...
+2026-08-25 22:24:27 | INFO     | SyntheticDataGenerator | Generating 365 days x 50 products = 18250 observations...
+2026-08-25 22:24:29 | INFO     | SyntheticDataGenerator | Synthetic dataset ready: 18250 rows, 20 columns
+2026-08-25 22:24:30 | INFO     | SyntheticDataGenerator | Saved synthetic dataset -> data\historical_sales.csv  (18250 rows)
+2026-08-25 22:25:33 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-25 22:25:33 | INFO     | PricingModelTrainer | Dataset loaded: 18250 rows, 20 columns
+2026-08-25 22:25:42 | INFO     | PricingModelTrainer | CV RMSE: 0.3430 (+/- 0.1178)
+2026-08-25 22:25:42 | INFO     | PricingModelTrainer | Dataset loaded: 18250 rows, 20 columns
+2026-08-25 22:25:42 | INFO     | PricingModelTrainer | Train: 14600 rows | Test: 3650 rows
+2026-08-25 22:25:42 | INFO     | PricingModelTrainer | Training XGBoost pricing model...
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer | ==================================================
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |   Model Evaluation Results
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer | ==================================================
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |   MAE  : GBP 0.0594
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |   RMSE : GBP 0.0844
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |   R2   : 0.9999
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |   MAPE : 0.3173%
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer | ==================================================
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer | Top 10 Feature Importances:
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    1. competitor_c_price        0.5375  ##########################
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    2. avg_competitor_price      0.2365  ###########
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    3. competitor_a_price        0.1597  #######
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    4. our_price                 0.0354  #
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    5. competitor_b_price        0.0214  #
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    6. rating                    0.0081  
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    7. price_vs_rating           0.0010  
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    8. month                     0.0001  
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |    9. price_gap_pct             0.0001  
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer |   10. season                    0.0000  
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer | Model saved -> models\pricing_model.joblib
+2026-08-25 22:25:44 | INFO     | PricingModelTrainer | Metadata   -> models\model_metadata.json
+2026-08-25 22:26:46 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-25 22:26:47 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-25 22:26:47 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
