@@ -71,3 +71,4 @@
 2026-08-25 22:37:09 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
 2026-08-25 22:37:09 | INFO     | api.main | ML model pre-warmed and ready.
 2026-08-25 22:37:09 | INFO     | api.main | Startup complete in 0.06s — listening on 0.0.0.0:8000
+2026-08-25 22:37:50 | INFO     | api.routes.pricing | Prediction request — our_price=35.00, competitors=[30.50, 33.00, 37.50]
