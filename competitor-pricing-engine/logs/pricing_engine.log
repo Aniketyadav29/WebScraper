@@ -72,3 +72,16 @@
 2026-08-25 22:37:09 | INFO     | api.main | ML model pre-warmed and ready.
 2026-08-25 22:37:09 | INFO     | api.main | Startup complete in 0.06s — listening on 0.0.0.0:8000
 2026-08-25 22:37:50 | INFO     | api.routes.pricing | Prediction request — our_price=35.00, competitors=[30.50, 33.00, 37.50]
+2026-08-25 22:54:55 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-25 22:54:55 | INFO     | api.main | ============================================================
+2026-08-25 22:54:55 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-25 22:54:55 | INFO     | api.main |   Starting up...
+2026-08-25 22:54:55 | INFO     | api.main | ============================================================
+2026-08-25 22:54:55 | INFO     | api.main | Database schema ready.
+2026-08-25 22:54:55 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-25 22:54:55 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-25 22:54:55 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-25 22:54:55 | INFO     | api.main | Startup complete in 0.08s — listening on 0.0.0.0:8000
+2026-08-25 22:55:40 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-25 22:56:09 | INFO     | api.routes.market | Price history request for: 'The Requiem Red'
+2026-08-25 22:56:23 | INFO     | api.routes.pricing | Prediction request — our_price=35.00, competitors=[30.50, 33.00, 37.50]
