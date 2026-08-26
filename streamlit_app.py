@@ -299,16 +299,25 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
             f"{title_q} Pro Edition (512GB Storage, 12GB RAM)",
             f"{title_q} Original Fast Charger & Protective Kit"
         ]
-    # 3. Upper Mid-Range Smartphones (Nothing 2a, Nothing 3a, CMF, OnePlus Nord, Realme GT, Poco F6, iQOO Neo, Vivo V, Reno)
-    elif any(w in q_lower for w in ["nothing", "cmf", "nord", "realme gt", "poco f", "poco x", "iqoo neo", "iqoo z", "vivo v", "oppo reno", "moto edge", "honor 200"]):
-        base_price = 24999.0
-        variants = [
-            f"{title_q} 5G (8GB RAM, 128GB Storage, Dark Grey / Black)",
-            f"{title_q} 5G (8GB RAM, 256GB Storage, Special Edition White)",
-            f"{title_q} 5G (12GB RAM, 256GB Storage, Transparent / Blue)",
-            f"{title_q} Pro 5G (12GB RAM, 512GB Storage)",
-            f"{title_q} Official 45W Fast Charger & Glyph Bumper Case"
-        ]
+    # 3. Upper Mid-Range Smartphones (Nothing 2a/3a, Realme P4 Lite, Realme P1/P2/12 Pro, CMF, OnePlus Nord, Realme GT, Poco F6, iQOO Neo, Vivo V, Reno)
+    elif any(w in q_lower for w in ["p4 lite", "p4", "p1 pro", "p2 pro", "12 pro", "13 pro", "nothing", "cmf", "nord", "realme gt", "poco f", "poco x", "iqoo neo", "iqoo z", "vivo v", "oppo reno", "moto edge", "honor 200"]):
+        base_price = 20949.0
+        if "p4 lite" in q_lower or "p4" in q_lower:
+            variants = [
+                "realme P4 Lite 5G (Mosaic Green, 128GB Storage), (6GB RAM)",
+                "realme P4 Lite 5G (Mosaic Blue, 128GB Storage), (6GB RAM)",
+                "realme P4 Lite 5G (Mosaic Green, 128GB Storage), (4GB RAM)",
+                "realme P4 Lite 5G (Mosaic Blue, 256GB Storage), (8GB RAM)",
+                "realme P4 Lite 5G Official 45W Fast Charger & Case"
+            ]
+        else:
+            variants = [
+                f"{title_q} 5G (8GB RAM, 128GB Storage, Dark Grey / Black)",
+                f"{title_q} 5G (8GB RAM, 256GB Storage, Special Edition White)",
+                f"{title_q} 5G (12GB RAM, 256GB Storage, Transparent / Blue)",
+                f"{title_q} Pro 5G (12GB RAM, 512GB Storage)",
+                f"{title_q} Official 45W Fast Charger & Glyph Bumper Case"
+            ]
     # 4. Budget & Value Smartphones
     elif any(w in q_lower for w in ["realme", "redmi", "poco", "narzo", "vivo", "oppo", "moto", "infinix", "tecno", "lava", "galaxy m", "galaxy a", "galaxy f", "phone", "mobile", "smartphone", "5g"]):
         base_price = 14499.0
