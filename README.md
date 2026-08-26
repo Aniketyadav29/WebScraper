@@ -13,7 +13,7 @@
 **Developed by Aniket Yadav**
 
 [![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Vercel-blue?style=for-the-badge)](https://web-scraper-nu-sandy.vercel.app/)
-[![Streamlit App](https://img.shields.io/badge/⚡%20Streamlit-Live%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://share.streamlit.io/)
+[![Streamlit App](https://img.shields.io/badge/⚡%20Streamlit-Live%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://webscraper-l.streamlit.app/)
 
 </div>
 
