@@ -471,7 +471,7 @@ Full list: [`requirements.txt`](competitor-pricing-engine/requirements.txt)
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Developer
 
 <div align="center">
 
