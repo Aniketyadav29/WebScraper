@@ -475,9 +475,7 @@ Full list: [`requirements.txt`](competitor-pricing-engine/requirements.txt)
 
 <div align="center">
 
-**Aniket Yadav | BBD**
-
-*Senior Data Engineering & ML Architecture Project*
+**Aniket Yadav**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Aniketyadav29-181717?style=for-the-badge&logo=github)](https://github.com/Aniketyadav29)
 
