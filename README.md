@@ -12,9 +12,19 @@
 
 **Developed by Aniket Yadav**
 
-[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-PriceIQ-blue?style=for-the-badge)](https://web-scraper-nu-sandy.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Vercel-blue?style=for-the-badge)](https://web-scraper-nu-sandy.vercel.app/)
+[![Streamlit App](https://img.shields.io/badge/⚡%20Streamlit-Live%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://share.streamlit.io/)
 
 </div>
+
+---
+
+## ⚡ 1-Click Deploy on Streamlit Community Cloud (Recommended)
+1. Fork / push this repository to GitHub.
+2. Go to **[share.streamlit.io](https://share.streamlit.io/)** and log in with GitHub.
+3. Click **"New app"**, choose your repo `WebScraper`, and set:
+   - **Main file path:** `streamlit_app.py`
+4. Click **Deploy!** Your app will run 100% live with all Python ML models and interactive dashboards!
 
 ---
 
