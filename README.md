@@ -9,11 +9,13 @@
 ![XGBoost](https://img.shields.io/badge/XGBoost-2.0-FF6600?style=for-the-badge&logo=xgboost&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![Chart.js](https://img.shields.io/badge/Chart.js-4.4-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
 **Developed by Aniket Yadav**
 
 [![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Vercel-blue?style=for-the-badge)](https://web-scraper-nu-sandy.vercel.app/)
 [![Streamlit App](https://img.shields.io/badge/⚡%20Streamlit-Live%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://webscraper-l.streamlit.app/)
+
 
 </div>
 
@@ -481,6 +483,11 @@ Full list: [`requirements.txt`](competitor-pricing-engine/requirements.txt)
 
 ---
 
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
 ## 👨‍💻 Developer
 
 <div align="center">
@@ -496,3 +503,4 @@ Full list: [`requirements.txt`](competitor-pricing-engine/requirements.txt)
 <div align="center">
   <sub>Built with Python · XGBoost · FastAPI · Chart.js · SQLAlchemy</sub>
 </div>
+
