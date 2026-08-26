@@ -279,7 +279,8 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
     title_q = q_clean.title()
     
     # Accurate category price detection
-    if any(w in q_lower for w in ["iphone 16 pro", "iphone 15 pro", "s24 ultra", "s23 ultra", "macbook pro"]):
+    # 1. Ultra Premium Flagships
+    if any(w in q_lower for w in ["iphone 16 pro", "iphone 15 pro", "s24 ultra", "s23 ultra", "macbook pro", "fold"]):
         base_price = 124999.0
         variants = [
             f"{title_q} (128GB, Titanium Gray)",
@@ -288,35 +289,29 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
             f"{title_q} (1TB, Desert Titanium)",
             f"{title_q} Official Fast Power Adapter & Case"
         ]
-    elif any(w in q_lower for w in ["iphone", "apple"]):
-        base_price = 56999.0
+    # 2. Flagship Smartphones
+    elif any(w in q_lower for w in ["iphone", "apple", "s24", "s23", "oneplus 12", "oneplus 11", "pixel 8", "pixel 9", "nothing phone 2", "nothing phone 3", "iqoo 12"]):
+        base_price = 58999.0
         variants = [
-            f"{title_q} (128GB, Midnight Blue)",
-            f"{title_q} (256GB, Starlight White)",
-            f"{title_q} (128GB, Green Edition)",
-            f"{title_q} Plus (128GB, Pink)",
-            f"{title_q} 20W Fast Charger & MagSafe Case"
+            f"{title_q} 5G (128GB Storage, 8GB RAM, Midnight Black)",
+            f"{title_q} 5G (256GB Storage, 12GB RAM, Starlight White)",
+            f"{title_q} 5G (256GB Storage, 8GB RAM, Forest Green)",
+            f"{title_q} Pro Edition (512GB Storage, 12GB RAM)",
+            f"{title_q} Original Fast Charger & Protective Kit"
         ]
-    elif any(w in q_lower for w in ["macbook", "laptop", "notebook", "thinkpad", "ideapad", "victus", "tuf"]):
-        base_price = 48990.0
+    # 3. Upper Mid-Range Smartphones (Nothing 2a, Nothing 3a, CMF, OnePlus Nord, Realme GT, Poco F6, iQOO Neo, Vivo V, Reno)
+    elif any(w in q_lower for w in ["nothing", "cmf", "nord", "realme gt", "poco f", "poco x", "iqoo neo", "iqoo z", "vivo v", "oppo reno", "moto edge", "honor 200"]):
+        base_price = 24999.0
         variants = [
-            f"{title_q} (Core i5 / Ryzen 5, 16GB RAM, 512GB SSD)",
-            f"{title_q} (Core i7 / Ryzen 7, 16GB RAM, 1TB SSD, 15.6\" FHD)",
-            f"{title_q} Thin & Light (8GB RAM, 512GB SSD, Backlit)",
-            f"{title_q} Gaming Edition (RTX 3050/4050, 144Hz IPS)",
-            f"{title_q} Laptop Backpack & Wireless Mouse Bundle"
-        ]
-    elif any(w in q_lower for w in ["realme gt", "oneplus 12", "oneplus 11", "iqoo 12", "s23", "s24", "pixel"]):
-        base_price = 34999.0
-        variants = [
-            f"{title_q} 5G (8GB RAM, 128GB Storage)",
-            f"{title_q} 5G (12GB RAM, 256GB Storage)",
+            f"{title_q} 5G (8GB RAM, 128GB Storage, Dark Grey / Black)",
+            f"{title_q} 5G (8GB RAM, 256GB Storage, Special Edition White)",
+            f"{title_q} 5G (12GB RAM, 256GB Storage, Transparent / Blue)",
             f"{title_q} Pro 5G (12GB RAM, 512GB Storage)",
-            f"{title_q} Special Edition (16GB RAM, 256GB)",
-            f"{title_q} 80W SuperVOOC Charger & Armor Case"
+            f"{title_q} Official 45W Fast Charger & Glyph Bumper Case"
         ]
-    elif any(w in q_lower for w in ["realme", "redmi", "poco", "narzo", "nord", "iqoo", "vivo", "oppo", "moto", "infinix"]):
-        base_price = 13999.0
+    # 4. Budget & Value Smartphones
+    elif any(w in q_lower for w in ["realme", "redmi", "poco", "narzo", "vivo", "oppo", "moto", "infinix", "tecno", "lava", "galaxy m", "galaxy a", "galaxy f", "phone", "mobile", "smartphone", "5g"]):
+        base_price = 14499.0
         variants = [
             f"{title_q} 5G (6GB RAM, 128GB Storage, Twilight Black)",
             f"{title_q} 5G (8GB RAM, 128GB Storage, Forest Green)",
@@ -324,35 +319,49 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
             f"{title_q} 5G (4GB RAM, 64GB Storage, Silver Flare)",
             f"{title_q} Fast Charger & Tough Glass Case Combo"
         ]
-    elif any(w in q_lower for w in ["airpods", "galaxy buds", "sony wh", "bose"]):
+    # 5. Laptops & Tablets
+    elif any(w in q_lower for w in ["macbook", "laptop", "notebook", "thinkpad", "ideapad", "victus", "tuf", "vivobook", "zenbook", "loq", "legion", "ipad", "tablet", "tab"]):
+        base_price = 49990.0
+        variants = [
+            f"{title_q} (Core i5 / Ryzen 5, 16GB RAM, 512GB SSD)",
+            f"{title_q} (Core i7 / Ryzen 7, 16GB RAM, 1TB SSD, 15.6\" FHD)",
+            f"{title_q} Thin & Light (8GB RAM, 512GB SSD, Backlit)",
+            f"{title_q} Gaming Edition (RTX 3050/4050, 144Hz IPS)",
+            f"{title_q} Laptop Backpack & Wireless Mouse Bundle"
+        ]
+    # 6. Premium Audio
+    elif any(w in q_lower for w in ["airpods", "galaxy buds", "sony wh", "sony wf", "bose", "sennheiser", "nothing ear"]):
         base_price = 14990.0
         variants = [
             f"{title_q} Active Noise Cancelling Wireless TWS (Black)",
             f"{title_q} ANC Wireless Earbuds (White)",
-            f"{title_q} Pro Edition with Spatial Audio",
+            f"{title_q} Pro Edition with Spatial Audio & Hi-Res LDAC",
             f"{title_q} Wireless Over-Ear Headphones",
-            f"{title_q} Protective Silicone Case"
+            f"{title_q} Protective Silicone Case & Fast Charge Cable"
         ]
-    elif any(w in q_lower for w in ["earbuds", "tws", "airdopes", "boat", "noise", "boult", "neckband", "headphones"]):
-        base_price = 1499.0
+    # 7. Budget Earbuds & Audio
+    elif any(w in q_lower for w in ["earbuds", "tws", "airdopes", "boat", "noise", "boult", "neckband", "headphones", "earphone", "earphones", "buds", "headphone"]):
+        base_price = 1699.0
         variants = [
             f"{title_q} True Wireless Earbuds with 40H Playtime (Active Black)",
             f"{title_q} Bluetooth TWS with Low Latency Gaming Mode",
             f"{title_q} Pro Wireless Neckband with Fast Charging",
             f"{title_q} Deep Bass Bluetooth Earphones (Bold Navy)",
-            f"{title_q} Extra Ear-tips & Fast Charging Pack"
+            f"{title_q} Extra Ear-tips & USB-C Cable Pack"
         ]
-    elif any(w in q_lower for w in ["watch", "smartwatch", "fitness tracker"]):
-        base_price = 2199.0
+    # 8. Smartwatches & Wearables
+    elif any(w in q_lower for w in ["watch", "smartwatch", "fitness band", "band", "tracker"]):
+        base_price = 2499.0
         variants = [
             f"{title_q} 1.85\" AMOLED Display Bluetooth Calling (Midnight Black)",
-            f"{title_q} Metal Mesh Strap Edition (Silver)",
+            f"{title_q} Metal Mesh Strap Edition (Silver / Black)",
             f"{title_q} Sports Smartwatch with 100+ Workout Modes",
             f"{title_q} Pro Edition with GPS & SpO2 Tracker",
             f"{title_q} Magnetic Fast Charger Dock & Spare Straps"
         ]
-    elif any(w in q_lower for w in ["shoe", "shoes", "sneaker", "sneakers", "nike", "adidas", "puma", "asics"]):
-        base_price = 2899.0
+    # 9. Footwear & Shoes
+    elif any(w in q_lower for w in ["shoe", "shoes", "sneaker", "sneakers", "nike", "adidas", "puma", "asics", "reebok", "skechers", "boots"]):
+        base_price = 3299.0
         variants = [
             f"{title_q} Running Shoes for Men (Black / White)",
             f"{title_q} Walking & Training Lightweight Sneakers",
@@ -360,8 +369,9 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
             f"{title_q} High-Traction Athletic Footwear",
             f"{title_q} Performance Insoles & Shoe Care Bundle"
         ]
-    elif any(w in q_lower for w in ["t-shirt", "shirt", "jeans", "jacket", "hoodie", "dress"]):
-        base_price = 799.0
+    # 10. Clothing & Apparel
+    elif any(w in q_lower for w in ["t-shirt", "shirt", "jeans", "jacket", "hoodie", "dress", "kurta", "trouser", "clothing"]):
+        base_price = 899.0
         variants = [
             f"{title_q} Regular Fit Cotton (Navy Blue)",
             f"{title_q} Slim Fit Casual (Black)",
@@ -369,17 +379,19 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
             f"{title_q} Relaxed Fit Comfort Wear (Olive Green)",
             f"{title_q} Multi-Pack Value Combo (Pack of 2)"
         ]
-    elif any(w in q_lower for w in ["tv", "television", "smart tv", "led"]):
-        base_price = 22990.0
+    # 11. TV & Appliances
+    elif any(w in q_lower for w in ["tv", "television", "smart tv", "led", "oled", "refrigerator", "fridge", "washing machine", "ac", "air conditioner"]):
+        base_price = 24990.0
         variants = [
             f"{title_q} 43-Inch 4K Ultra HD Smart LED TV (Dolby Vision)",
             f"{title_q} 32-Inch HD Ready Smart Android TV",
             f"{title_q} 55-Inch 4K UHD Smart Google TV (HDR10+)",
             f"{title_q} 50-Inch Bezel-less Smart LED TV",
-            f"{title_q} Wall Mount Kit & High-Speed HDMI Cable"
+            f"{title_q} Complete Installation Kit & High-Speed Cable"
         ]
-    elif any(w in q_lower for w in ["coffee", "tea", "almond", "biscuit", "grocery", "oil"]):
-        base_price = 449.0
+    # 12. Grocery & Gourmet
+    elif any(w in q_lower for w in ["coffee", "tea", "almond", "biscuit", "grocery", "oil", "ghee", "protein", "whey", "nut", "honey"]):
+        base_price = 499.0
         variants = [
             f"{title_q} 200g Glass Jar / Value Pack",
             f"{title_q} 500g Value Saver Pouch",
