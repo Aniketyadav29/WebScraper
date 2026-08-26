@@ -23,6 +23,7 @@ from pydantic import BaseModel, Field, field_validator
 
 class HealthResponse(BaseModel):
     """API health-check response."""
+    model_config = {"protected_namespaces": ()}
     status: str = Field(..., example="ok")
     version: str = Field(..., example="1.0.0")
     timestamp: datetime
@@ -100,6 +101,7 @@ class BatchPricePredictResponse(BaseModel):
 
 class ModelInfoResponse(BaseModel):
     """ML model metadata and training metrics."""
+    model_config = {"protected_namespaces": ()}
     model_name: str
     feature_count: int
     feature_cols: list[str]
@@ -178,3 +180,44 @@ class ErrorResponse(BaseModel):
     error: str
     detail: Optional[Any] = None
     timestamp: datetime
+
+
+# ---------------------------------------------------------------------------
+# E-commerce (Amazon vs Flipkart) Schemas
+# ---------------------------------------------------------------------------
+
+class EcommerceTrackRequest(BaseModel):
+    """Request schema to track Amazon & Flipkart prices for a query."""
+    query: str = Field(..., example="iPhone 15", description="Product search keyword.")
+    limit: int = Field(5, ge=1, le=20, description="Items to fetch per platform.")
+
+
+class StoreProductDetail(BaseModel):
+    sku: Optional[str] = None
+    title: Optional[str] = None
+    price: float
+    mrp: Optional[float] = None
+    rating: Optional[float] = None
+    url: Optional[str] = None
+
+
+class ProductComparisonPair(BaseModel):
+    product_name: str
+    similarity_score: float
+    amazon: StoreProductDetail
+    flipkart: StoreProductDetail
+    price_diff: float
+    diff_percentage: float
+    cheaper_store: str
+    optimal_price: float
+
+
+class EcommerceTrackResponse(BaseModel):
+    query: str
+    tracked_at: str
+    amazon_count: int
+    flipkart_count: int
+    matched_pairs_count: int
+    comparisons: list[ProductComparisonPair]
+    raw_file: Optional[str] = None
+

@@ -25,6 +25,8 @@ from fastapi import APIRouter, HTTPException, Query, status
 from api.schemas import (
     CompetitorPriceRecord,
     CompetitorSummary,
+    EcommerceTrackRequest,
+    EcommerceTrackResponse,
     MarketSummaryResponse,
     PriceHistoryRecord,
     PriceHistoryResponse,
@@ -243,3 +245,64 @@ async def get_price_history(title: str) -> PriceHistoryResponse:
         records=records,
         total=len(records),
     )
+
+
+@router.post(
+    "/track-ecommerce",
+    response_model=EcommerceTrackResponse,
+    summary="Track Amazon & Flipkart Prices",
+    description="Scrapes Amazon India and Flipkart for a given search query and returns matched comparisons.",
+)
+async def track_ecommerce_market(
+    payload: EcommerceTrackRequest,
+) -> EcommerceTrackResponse:
+    """
+    Search and track live competitor prices across Amazon and Flipkart.
+    """
+    from scraper.ecommerce_tracker import EcommerceTracker
+    try:
+        tracker = EcommerceTracker()
+        result = tracker.track(query=payload.query, limit=payload.limit)
+        return EcommerceTrackResponse(**result)
+    except Exception as exc:
+        logger.error("Failed ecommerce tracking: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Tracking failed: {exc}",
+        )
+
+
+@router.get(
+    "/ecommerce-catalog",
+    response_model=EcommerceTrackResponse,
+    summary="Get Complete Amazon vs Flipkart Multi-Goods Catalog",
+    description="Returns pre-tracked cross-platform product comparisons across all major categories.",
+)
+async def get_ecommerce_catalog(
+    category: Optional[str] = Query(None, description="Optional category filter (e.g. Smartphones, Laptops, Audio)")
+) -> EcommerceTrackResponse:
+    """
+    Fetch comprehensive side-by-side comparisons of popular goods across Amazon & Flipkart.
+    """
+    from scraper.ecommerce_tracker import EcommerceTracker
+    tracker = EcommerceTracker()
+    
+    # Track diverse product queries
+    catalog_queries = ["iPhone 15", "Samsung Galaxy S24", "MacBook Air M2", "Sony WH-1000XM5", "Apple Watch Series 9", "PlayStation 5", "iPad Air"]
+    all_comparisons = []
+    
+    for q in catalog_queries:
+        res = tracker.track(query=q, limit=2)
+        all_comparisons.extend(res.get("comparisons", []))
+    
+    return EcommerceTrackResponse(
+        query="All Goods Catalog",
+        tracked_at=datetime.now(timezone.utc).isoformat(),
+        amazon_count=len(all_comparisons),
+        flipkart_count=len(all_comparisons),
+        matched_pairs_count=len(all_comparisons),
+        comparisons=all_comparisons,
+        raw_file=None,
+    )
+
+

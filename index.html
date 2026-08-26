@@ -257,6 +257,100 @@
 
     </section>
 
+    <!-- ── Amazon vs Flipkart Live Tracker ──────────────── -->
+    <section class="ecom-section" id="ecom-section">
+      <div class="ecom-card">
+        <div class="ecom-header">
+          <div class="ecom-title-group">
+            <div class="ecom-badge">LIVE MULTI-GOODS TRACKER</div>
+            <h2 class="chart-title">🛒 Amazon vs 🛍️ Flipkart Full Goods Catalog</h2>
+            <p class="chart-sub">Cross-platform price comparisons, live arbitrage gaps & optimal pricing across all major categories</p>
+          </div>
+          <form class="ecom-search-form" id="ecom-form" onsubmit="trackEcommerce(event)">
+            <div class="ecom-input-wrap">
+              <i data-lucide="search" class="ecom-search-icon"></i>
+              <input type="text" id="ecom-query" placeholder="Search or filter any product (e.g. iPhone, MacBook, Sony, Watch)..." oninput="filterEcommerceGoods()" />
+            </div>
+            <button type="submit" class="ecom-btn" id="ecom-btn">
+              <i data-lucide="crosshair"></i>
+              <span>Track Live</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Category Filter Tabs & Summary Bar -->
+        <div class="ecom-toolbar">
+          <div class="ecom-category-pills" id="ecom-pills">
+            <button class="ecom-pill active" onclick="selectEcomCategory('all')">🔥 All Goods (<span id="count-all">0</span>)</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('smartphones')">📱 Smartphones</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('laptops')">💻 Laptops</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('audio')">🎧 Audio &amp; Buds</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('smartwatches')">⌚ Smartwatches</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('gaming')">🎮 Gaming</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('appliances')">📺 TVs &amp; Appliances</button>
+          </div>
+
+          <div class="ecom-view-toggle">
+            <button class="view-btn active" id="view-grid-btn" onclick="setEcomView('grid')" title="Card View">
+              <i data-lucide="layout-grid"></i>
+            </button>
+            <button class="view-btn" id="view-table-btn" onclick="setEcomView('table')" title="Table View">
+              <i data-lucide="table"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Summary Stats -->
+        <div class="ecom-summary-bar" id="ecom-summary-bar">
+          <div class="ecom-stat-item">
+            <span class="esi-label">Total Compared Goods:</span>
+            <strong class="esi-val" id="stat-total-goods">--</strong>
+          </div>
+          <div class="ecom-stat-item">
+            <span class="esi-label">🛒 Amazon Cheaper:</span>
+            <strong class="esi-val val-orange" id="stat-amz-cheaper">--</strong>
+          </div>
+          <div class="ecom-stat-item">
+            <span class="esi-label">🛍️ Flipkart Cheaper:</span>
+            <strong class="esi-val val-blue" id="stat-flp-cheaper">--</strong>
+          </div>
+          <div class="ecom-stat-item">
+            <span class="esi-label">💰 Avg Arbitrage Gap:</span>
+            <strong class="esi-val val-green" id="stat-avg-gap">--</strong>
+          </div>
+        </div>
+
+        <!-- Dynamic Results Container -->
+        <div class="ecom-results" id="ecom-results">
+          <div class="ecom-loading" id="ecom-loading" style="display:none;">
+            <div class="loader-ring loader-ring-sm"></div>
+            <span>Fetching live prices from Amazon India &amp; Flipkart...</span>
+          </div>
+          
+          <!-- Card Grid View -->
+          <div class="ecom-grid" id="ecom-grid"></div>
+
+          <!-- Table View -->
+          <div class="ecom-table-wrap" id="ecom-table-wrap" style="display:none;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Product Name</th>
+                  <th>Amazon Price</th>
+                  <th>Flipkart Price</th>
+                  <th>Price Gap</th>
+                  <th>Cheaper Platform</th>
+                  <th>Optimal Price</th>
+                </tr>
+              </thead>
+              <tbody id="ecom-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Live Competitor Price Table ─────────────────── -->
     <section class="table-section">
       <div class="table-card">

@@ -1,0 +1,11 @@
+sku,title,category,price,mrp,discount_pct,currency,rating,review_count,availability,competitor_name,product_url,scraped_at
+AMZ-B0GFVZQNG7,realme,Realme Narzo 70,20999.0,20999.0,0.0,INR,3.0,0,In Stock,Amazon India,,2026-08-26T05:44:57.156013+00:00
+AMZ-B0H1BMBX9R,realme,Realme Narzo 70,12999.0,16999.0,23.5,INR,4.1,0,In Stock,Amazon India,,2026-08-26T05:44:57.194118+00:00
+AMZ-B0GTRM9NQ7,realme,Realme Narzo 70,15499.0,24999.0,38.0,INR,4.0,0,In Stock,Amazon India,,2026-08-26T05:44:57.241127+00:00
+AMZ-B0GPXTY8V5,Lava,Realme Narzo 70,8999.0,8999.0,0.0,INR,3.5,0,In Stock,Amazon India,,2026-08-26T05:44:57.277757+00:00
+AMZ-B0GZQDHYMD,Lava,Realme Narzo 70,12999.0,15999.0,18.8,INR,3.9,0,In Stock,Amazon India,,2026-08-26T05:44:57.561308+00:00
+FLP-518624,Flipkart: realme,Realme Narzo 70,21081.15,20999.0,0.0,INR,3.5,70,In Stock,Flipkart,https://www.flipkart.com/search?q=realme,2026-08-26T05:45:01.045769+00:00
+FLP-518624,Flipkart: realme,Realme Narzo 70,13224.85,16999.0,22.2,INR,4.1,70,In Stock,Flipkart,https://www.flipkart.com/search?q=realme,2026-08-26T05:45:01.045769+00:00
+FLP-518624,Flipkart: realme,Realme Narzo 70,15645.57,24999.0,37.4,INR,4.1,126,In Stock,Flipkart,https://www.flipkart.com/search?q=realme,2026-08-26T05:45:01.045769+00:00
+FLP-77968,Flipkart: Lava,Realme Narzo 70,8630.03,8999.0,4.1,INR,3.5,84,In Stock,Flipkart,https://www.flipkart.com/search?q=Lava,2026-08-26T05:45:01.045769+00:00
+FLP-77968,Flipkart: Lava,Realme Narzo 70,12500.0,15999.0,21.9,INR,3.7,72,In Stock,Flipkart,https://www.flipkart.com/search?q=Lava,2026-08-26T05:45:01.046769+00:00

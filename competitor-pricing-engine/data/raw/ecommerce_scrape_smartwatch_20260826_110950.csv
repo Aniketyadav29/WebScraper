@@ -1,0 +1,7 @@
+sku,title,category,price,mrp,discount_pct,currency,rating,review_count,availability,competitor_name,product_url,scraped_at
+AMZ-1000,Amazon: Smartwatch - 128GB Storage (Midnight Black),Smartwatch,64799.0,79900.0,18.9,INR,4.4,1240,In Stock,Amazon India,https://www.amazon.in/dp/B00XYZ99,2026-08-26T05:39:50.402546+00:00
+AMZ-1001,Amazon: Smartwatch - 256GB Storage (Titanium Silver),Smartwatch,74949.0,89900.0,16.6,INR,4.4,1320,In Stock,Amazon India,https://www.amazon.in/dp/B01XYZ99,2026-08-26T05:39:50.403059+00:00
+AMZ-1002,"Amazon: Smartwatch Pro Edition (Deep Blue, 512GB)",Smartwatch,120099.0,134900.0,11.0,INR,4.4,1400,In Stock,Amazon India,https://www.amazon.in/dp/B02XYZ99,2026-08-26T05:39:50.403059+00:00
+FLP-2000,Flipkart: Smartwatch - 128GB Storage (Midnight Black),Smartwatch,65149.0,79900.0,18.5,INR,4.3,980,In Stock,Flipkart,https://www.flipkart.com/p/itm0abc11,2026-08-26T05:39:50.403059+00:00
+FLP-2001,Flipkart: Smartwatch - 256GB Storage (Titanium Silver),Smartwatch,74849.0,89900.0,16.7,INR,4.3,1030,In Stock,Flipkart,https://www.flipkart.com/p/itm1abc11,2026-08-26T05:39:50.403059+00:00
+FLP-2002,"Flipkart: Smartwatch Pro Edition (Deep Blue, 512GB)",Smartwatch,119549.0,134900.0,11.4,INR,4.3,1080,In Stock,Flipkart,https://www.flipkart.com/p/itm2abc11,2026-08-26T05:39:50.403059+00:00

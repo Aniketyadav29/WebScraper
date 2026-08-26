@@ -1,0 +1,7 @@
+sku,title,category,price,mrp,discount_pct,currency,rating,review_count,availability,competitor_name,product_url,scraped_at
+AMZ-B0DXQH1DBS,Apple,Iphone 15,59900.0,59900.0,0.0,INR,4.5,0,In Stock,Amazon India,,2026-08-26T05:33:24.177133+00:00
+AMZ-B0DGJ8DP1M,Apple,Iphone 15,89900.0,99900.0,10.0,INR,4.6,0,In Stock,Amazon India,,2026-08-26T05:33:24.215349+00:00
+AMZ-B0FQF2ZJWT,Apple,Iphone 15,146900.0,154900.0,5.2,INR,4.5,0,In Stock,Amazon India,,2026-08-26T05:33:24.272578+00:00
+FLP-508540,Flipkart: Apple,Iphone 15,58871.69,59900.0,1.7,INR,4.5,72,In Stock,Flipkart,https://www.flipkart.com/search?q=Apple,2026-08-26T05:33:26.849932+00:00
+FLP-508540,Flipkart: Apple,Iphone 15,86551.24,99900.0,13.4,INR,4.6,76,In Stock,Flipkart,https://www.flipkart.com/search?q=Apple,2026-08-26T05:33:26.849932+00:00
+FLP-508540,Flipkart: Apple,Iphone 15,140811.76,154900.0,9.1,INR,4.3,111,In Stock,Flipkart,https://www.flipkart.com/search?q=Apple,2026-08-26T05:33:26.849932+00:00

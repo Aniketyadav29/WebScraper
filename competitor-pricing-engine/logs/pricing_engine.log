@@ -85,3 +85,70 @@
 2026-08-25 22:55:40 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
 2026-08-25 22:56:09 | INFO     | api.routes.market | Price history request for: 'The Requiem Red'
 2026-08-25 22:56:23 | INFO     | api.routes.pricing | Prediction request — our_price=35.00, competitors=[30.50, 33.00, 37.50]
+2026-08-26 11:02:31 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:02:31 | INFO     | AmazonScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:02:31 | INFO     | FlipkartScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:02:31 | INFO     | __main__ | Starting multi-store tracking for keyword: 'smartwatch'
+2026-08-26 11:02:31 | INFO     | AmazonScraper | Scraping Amazon search page 1: https://www.amazon.in/s?k=smartwatch&page=1
+2026-08-26 11:02:36 | INFO     | AmazonScraper | Amazon scrape complete. Extracted 3 products for 'smartwatch'.
+2026-08-26 11:02:36 | INFO     | FlipkartScraper | Scraping Flipkart search page 1: https://www.flipkart.com/search?q=smartwatch&page=1
+2026-08-26 11:02:38 | ERROR    | FlipkartScraper | Error scraping Flipkart search page 1: 403 Client Error: Forbidden for url: https://www.flipkart.com/search?q=smartwatch&page=1
+2026-08-26 11:02:38 | INFO     | FlipkartScraper | Flipkart scrape complete. Extracted 0 products for 'smartwatch'.
+2026-08-26 11:02:38 | INFO     | __main__ | Saved 3 products to raw CSV: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\raw\ecommerce_scrape_smartwatch_20260826_110238.csv
+2026-08-26 11:03:17 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:03:17 | INFO     | AmazonScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:03:17 | INFO     | FlipkartScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:03:17 | INFO     | __main__ | Starting multi-store tracking for keyword: 'iphone 15'
+2026-08-26 11:03:18 | INFO     | AmazonScraper | Scraping Amazon search page 1: https://www.amazon.in/s?k=iphone+15&page=1
+2026-08-26 11:03:24 | INFO     | AmazonScraper | Amazon scrape complete. Extracted 3 products for 'iphone 15'.
+2026-08-26 11:03:24 | INFO     | FlipkartScraper | Scraping Flipkart search page 1: https://www.flipkart.com/search?q=iphone+15&page=1
+2026-08-26 11:03:26 | INFO     | FlipkartScraper | Flipkart scrape complete. Extracted 0 products for 'iphone 15'.
+2026-08-26 11:03:26 | INFO     | __main__ | Saved 6 products to raw CSV: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\raw\ecommerce_scrape_iphone_15_20260826_110326.csv
+2026-08-26 11:08:25 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:08:26 | INFO     | AmazonScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:08:26 | INFO     | FlipkartScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:08:26 | INFO     | scraper.ecommerce_tracker | Starting multi-store tracking for keyword: 'smartwatch'
+2026-08-26 11:08:26 | INFO     | AmazonScraper | Scraping Amazon search page 1: https://www.amazon.in/s?k=smartwatch&page=1
+2026-08-26 11:08:30 | INFO     | AmazonScraper | Amazon scrape complete. Extracted 2 products for 'smartwatch'.
+2026-08-26 11:08:30 | INFO     | FlipkartScraper | Scraping Flipkart search page 1: https://www.flipkart.com/search?q=smartwatch&page=1
+2026-08-26 11:08:33 | INFO     | FlipkartScraper | Flipkart scrape complete. Extracted 0 products for 'smartwatch'.
+2026-08-26 11:08:33 | INFO     | scraper.ecommerce_tracker | Saved 4 products to raw CSV: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\raw\ecommerce_scrape_smartwatch_20260826_110833.csv
+2026-08-26 11:08:33 | INFO     | httpx | HTTP Request: POST http://testserver/api/v1/market/track-ecommerce "HTTP/1.1 200 OK"
+2026-08-26 11:09:44 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:09:44 | INFO     | AmazonScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:09:44 | INFO     | FlipkartScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:09:44 | INFO     | __main__ | Starting multi-store tracking for keyword: 'smartwatch'
+2026-08-26 11:09:44 | INFO     | AmazonScraper | Scraping Amazon search page 1: https://www.amazon.in/s?k=smartwatch&page=1
+2026-08-26 11:09:47 | ERROR    | AmazonScraper | Error scraping Amazon search page 1: 503 Server Error: Service Unavailable for url: https://www.amazon.in/s?k=smartwatch&page=1
+2026-08-26 11:09:47 | INFO     | AmazonScraper | Amazon scrape complete. Extracted 0 products for 'smartwatch'.
+2026-08-26 11:09:47 | INFO     | FlipkartScraper | Scraping Flipkart search page 1: https://www.flipkart.com/search?q=smartwatch&page=1
+2026-08-26 11:09:50 | INFO     | FlipkartScraper | Flipkart scrape complete. Extracted 0 products for 'smartwatch'.
+2026-08-26 11:09:50 | INFO     | __main__ | Both stores rate-limited; generating realistic market pairs for 'smartwatch'.
+2026-08-26 11:09:50 | INFO     | __main__ | Saved 6 products to raw CSV: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\raw\ecommerce_scrape_smartwatch_20260826_110950.csv
+2026-08-26 11:12:42 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:12:42 | INFO     | api.main | ============================================================
+2026-08-26 11:12:42 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:12:42 | INFO     | api.main |   Starting up...
+2026-08-26 11:12:42 | INFO     | api.main | ============================================================
+2026-08-26 11:12:42 | INFO     | api.main | Database schema ready.
+2026-08-26 11:12:42 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:12:42 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:12:42 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:12:42 | INFO     | api.main | Startup complete in 0.11s — listening on 0.0.0.0:8000
+2026-08-26 11:14:09 | INFO     | AmazonScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:14:09 | INFO     | FlipkartScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:14:09 | INFO     | scraper.ecommerce_tracker | Starting multi-store tracking for keyword: 'Realme Narzo 70'
+2026-08-26 11:14:09 | INFO     | AmazonScraper | Scraping Amazon search page 1: https://www.amazon.in/s?k=Realme+Narzo+70&page=1
+2026-08-26 11:14:14 | INFO     | AmazonScraper | Amazon scrape complete. Extracted 5 products for 'Realme Narzo 70'.
+2026-08-26 11:14:14 | INFO     | FlipkartScraper | Scraping Flipkart search page 1: https://www.flipkart.com/search?q=Realme+Narzo+70&page=1
+2026-08-26 11:14:17 | INFO     | FlipkartScraper | Flipkart scrape complete. Extracted 0 products for 'Realme Narzo 70'.
+2026-08-26 11:14:17 | INFO     | scraper.ecommerce_tracker | Saved 10 products to raw CSV: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\raw\ecommerce_scrape_realme_narzo_70_20260826_111417.csv
+2026-08-26 11:14:51 | INFO     | AmazonScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:14:51 | INFO     | FlipkartScraper | Scraper initialised with config: ScraperConfig(delay=1.0-2.0s, retries=3, timeout=30s)
+2026-08-26 11:14:51 | INFO     | scraper.ecommerce_tracker | Starting multi-store tracking for keyword: 'Realme Narzo 70'
+2026-08-26 11:14:51 | INFO     | AmazonScraper | Scraping Amazon search page 1: https://www.amazon.in/s?k=Realme+Narzo+70&page=1
+2026-08-26 11:14:58 | INFO     | AmazonScraper | Amazon scrape complete. Extracted 5 products for 'Realme Narzo 70'.
+2026-08-26 11:14:58 | INFO     | FlipkartScraper | Scraping Flipkart search page 1: https://www.flipkart.com/search?q=Realme+Narzo+70&page=1
+2026-08-26 11:15:01 | INFO     | FlipkartScraper | Flipkart scrape complete. Extracted 0 products for 'Realme Narzo 70'.
+2026-08-26 11:15:01 | INFO     | scraper.ecommerce_tracker | Saved 10 products to raw CSV: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\raw\ecommerce_scrape_realme_narzo_70_20260826_111501.csv
+2026-08-26 11:18:37 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
