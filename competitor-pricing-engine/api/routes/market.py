@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import logging
 from datetime import datetime, timezone
+from typing import Any, Optional
 from urllib.parse import unquote
 
 from fastapi import APIRouter, HTTPException, Query, status
@@ -274,35 +275,145 @@ async def track_ecommerce_market(
 
 @router.get(
     "/ecommerce-catalog",
-    response_model=EcommerceTrackResponse,
-    summary="Get Complete Amazon vs Flipkart Multi-Goods Catalog",
-    description="Returns pre-tracked cross-platform product comparisons across all major categories.",
+    response_model=dict,
+    summary="Get 100,000+ Amazon vs Flipkart Goods Catalog",
+    description="Returns fast paginated comparisons across 100,000+ goods in SQLite database.",
 )
 async def get_ecommerce_catalog(
-    category: Optional[str] = Query(None, description="Optional category filter (e.g. Smartphones, Laptops, Audio)")
-) -> EcommerceTrackResponse:
+    page: int = Query(1, ge=1, description="Page number"),
+    page_size: int = Query(25, ge=1, le=100, description="Items per page"),
+    category: Optional[str] = Query(None, description="Category filter (e.g. grocery, clothes, smartphones)"),
+    search: Optional[str] = Query(None, description="Search query keyword"),
+    sort_by: Optional[str] = Query("gap_desc", description="Sort criteria: gap_desc, gap_asc, price_asc, price_desc"),
+) -> dict:
     """
-    Fetch comprehensive side-by-side comparisons of popular goods across Amazon & Flipkart.
+    Fetch paginated, filtered, and sorted comparisons from the 100,000+ goods database.
     """
-    from scraper.ecommerce_tracker import EcommerceTracker
-    tracker = EcommerceTracker()
+    import sqlite3
+    from pathlib import Path
+    db_path = Path(__file__).resolve().parent.parent.parent / "data" / "db" / "pricing_engine.db"
     
-    # Track diverse product queries
-    catalog_queries = ["iPhone 15", "Samsung Galaxy S24", "MacBook Air M2", "Sony WH-1000XM5", "Apple Watch Series 9", "PlayStation 5", "iPad Air"]
-    all_comparisons = []
-    
-    for q in catalog_queries:
-        res = tracker.track(query=q, limit=2)
-        all_comparisons.extend(res.get("comparisons", []))
-    
-    return EcommerceTrackResponse(
-        query="All Goods Catalog",
-        tracked_at=datetime.now(timezone.utc).isoformat(),
-        amazon_count=len(all_comparisons),
-        flipkart_count=len(all_comparisons),
-        matched_pairs_count=len(all_comparisons),
-        comparisons=all_comparisons,
-        raw_file=None,
-    )
+    if not db_path.exists():
+        raise HTTPException(status_code=500, detail="Database not initialized. Please run seed script.")
+
+    conn = sqlite3.connect(db_path, timeout=30.0)
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    where_clauses = ["1=1"]
+    params: list[Any] = []
+
+    if category and category != "all":
+        where_clauses.append("category = ?")
+        params.append(category)
+
+    if search:
+        where_clauses.append("(title LIKE ? OR brand LIKE ? OR cat_name LIKE ?)")
+        term = f"%{search.strip()}%"
+        params.extend([term, term, term])
+
+    where_sql = " AND ".join(where_clauses)
+
+    # 1. Total Count
+    count_cursor = conn.cursor()
+    count_cursor.execute(f"SELECT COUNT(*) FROM ecommerce_goods WHERE {where_sql}", params)
+    total_records = count_cursor.fetchone()[0]
+
+    # 2. Summary stats for the filter
+    stats_cursor = conn.cursor()
+    stats_cursor.execute(f"""
+        SELECT 
+            COUNT(*) as total,
+            SUM(CASE WHEN cheaper_store = 'Amazon India' THEN 1 ELSE 0 END) as amz_cheaper,
+            SUM(CASE WHEN cheaper_store = 'Flipkart' THEN 1 ELSE 0 END) as flp_cheaper,
+            AVG(price_diff) as avg_diff
+        FROM ecommerce_goods 
+        WHERE {where_sql}
+    """, params)
+    stat_row = stats_cursor.fetchone()
+
+    # 3. Sorting
+    sort_map = {
+        "gap_desc": "price_diff DESC",
+        "gap_asc": "price_diff ASC",
+        "price_asc": "amazon_price ASC",
+        "price_desc": "amazon_price DESC",
+        "discount_desc": "diff_percentage DESC",
+    }
+    order_clause = sort_map.get(sort_by or "gap_desc", "price_diff DESC")
+
+    offset = (page - 1) * page_size
+    query_params = list(params) + [page_size, offset]
+
+    cursor.execute(f"""
+        SELECT id, sku, category, cat_name, brand, title,
+               amazon_price, flipkart_price, mrp, price_diff, diff_percentage,
+               cheaper_store, optimal_price, rating_amz, rating_flp,
+               amazon_url, flipkart_url
+        FROM ecommerce_goods
+        WHERE {where_sql}
+        ORDER BY {order_clause}
+        LIMIT ? OFFSET ?
+    """, query_params)
+
+    rows = cursor.fetchall()
+    conn.close()
+
+    items = []
+    for r in rows:
+        items.append({
+            "id": r["id"],
+            "sku": r["sku"],
+            "category": r["category"],
+            "catName": r["cat_name"],
+            "brand": r["brand"],
+            "title": r["title"],
+            "product_name": r["title"],
+            "amz": r["amazon_price"],
+            "flp": r["flipkart_price"],
+            "mrp": r["mrp"],
+            "price_diff": r["price_diff"],
+            "diff_percentage": r["diff_percentage"],
+            "cheaper_store": r["cheaper_store"],
+            "optimal_price": r["optimal_price"],
+            "ratingA": r["rating_amz"],
+            "ratingF": r["rating_flp"],
+            "amazon_url": r["amazon_url"],
+            "flipkart_url": r["flipkart_url"],
+            "amazon": {
+                "title": f"Amazon: {r['title']}",
+                "price": r["amazon_price"],
+                "mrp": r["mrp"],
+                "rating": r["rating_amz"],
+                "url": r["amazon_url"],
+            },
+            "flipkart": {
+                "title": f"Flipkart: {r['title']}",
+                "price": r["flipkart_price"],
+                "mrp": r["mrp"],
+                "rating": r["rating_flp"],
+                "url": r["flipkart_url"],
+            }
+        })
+
+    total_pages = max(1, (total_records + page_size - 1) // page_size)
+
+    return {
+        "status": "ok",
+        "total_goods": total_records,
+        "page": page,
+        "page_size": page_size,
+        "total_pages": total_pages,
+        "category": category or "all",
+        "search": search or "",
+        "stats": {
+            "total": stat_row["total"] or 0,
+            "amz_cheaper": stat_row["amz_cheaper"] or 0,
+            "flp_cheaper": stat_row["flp_cheaper"] or 0,
+            "avg_gap": round(stat_row["avg_diff"] or 0.0, 2),
+        },
+        "items": items,
+    }
+
 
 

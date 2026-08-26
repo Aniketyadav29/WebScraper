@@ -282,15 +282,25 @@
         <div class="ecom-toolbar">
           <div class="ecom-category-pills" id="ecom-pills">
             <button class="ecom-pill active" onclick="selectEcomCategory('all')">🔥 All Goods (<span id="count-all">0</span>)</button>
-            <button class="ecom-pill" onclick="selectEcomCategory('smartphones')">📱 Smartphones</button>
-            <button class="ecom-pill" onclick="selectEcomCategory('laptops')">💻 Laptops</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('grocery')">🥦 Eatables &amp; Grocery</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('clothes')">👕 Clothes &amp; Fashion</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('smartphones')">📱 Electronics &amp; Mobiles</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('laptops')">💻 Laptops &amp; PC</button>
             <button class="ecom-pill" onclick="selectEcomCategory('audio')">🎧 Audio &amp; Buds</button>
             <button class="ecom-pill" onclick="selectEcomCategory('smartwatches')">⌚ Smartwatches</button>
-            <button class="ecom-pill" onclick="selectEcomCategory('gaming')">🎮 Gaming</button>
-            <button class="ecom-pill" onclick="selectEcomCategory('appliances')">📺 TVs &amp; Appliances</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('appliances')">🏠 Home &amp; Kitchen</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('beauty')">💄 Beauty &amp; Care</button>
+            <button class="ecom-pill" onclick="selectEcomCategory('gaming')">🎮 Gaming &amp; Toys</button>
           </div>
 
           <div class="ecom-view-toggle">
+            <select class="ecom-sort-select" id="ecom-sort" onchange="changeEcomSort(this.value)">
+              <option value="gap_desc">💥 Highest Price Gap (Arbitrage)</option>
+              <option value="gap_asc">⚖️ Closest Price (Lowest Gap)</option>
+              <option value="price_asc">💵 Price: Low to High</option>
+              <option value="price_desc">💎 Price: High to Low</option>
+              <option value="discount_desc">🏷️ Highest Discount %</option>
+            </select>
             <button class="view-btn active" id="view-grid-btn" onclick="setEcomView('grid')" title="Card View">
               <i data-lucide="layout-grid"></i>
             </button>
@@ -303,8 +313,8 @@
         <!-- Quick Summary Stats -->
         <div class="ecom-summary-bar" id="ecom-summary-bar">
           <div class="ecom-stat-item">
-            <span class="esi-label">Total Compared Goods:</span>
-            <strong class="esi-val" id="stat-total-goods">--</strong>
+            <span class="esi-label">📦 Indexed Database:</span>
+            <strong class="esi-val" id="stat-total-goods">100,000 Goods</strong>
           </div>
           <div class="ecom-stat-item">
             <span class="esi-label">🛒 Amazon Cheaper:</span>
@@ -324,7 +334,7 @@
         <div class="ecom-results" id="ecom-results">
           <div class="ecom-loading" id="ecom-loading" style="display:none;">
             <div class="loader-ring loader-ring-sm"></div>
-            <span>Fetching live prices from Amazon India &amp; Flipkart...</span>
+            <span>Loading goods from 100,000+ indexed catalog...</span>
           </div>
           
           <!-- Card Grid View -->
@@ -341,11 +351,34 @@
                   <th>Flipkart Price</th>
                   <th>Price Gap</th>
                   <th>Cheaper Platform</th>
+                  <th>Direct Store Links</th>
                   <th>Optimal Price</th>
                 </tr>
               </thead>
               <tbody id="ecom-table-body"></tbody>
             </table>
+          </div>
+
+          <!-- Pagination Bar -->
+          <div class="ecom-pagination" id="ecom-pagination">
+            <div class="pagination-info" id="pagination-info">
+              Showing page <strong id="cur-page-num">1</strong> of <strong id="total-page-num">4,000</strong> (<span id="total-items-badge">100,000</span> goods)
+            </div>
+            <div class="pagination-buttons">
+              <button class="pag-btn" id="pag-first-btn" onclick="changeEcomPage('first')" title="First Page">« First</button>
+              <button class="pag-btn" id="pag-prev-btn" onclick="changeEcomPage('prev')" title="Previous Page">‹ Prev</button>
+              <span class="pag-current" id="pag-cur-display">Page 1</span>
+              <button class="pag-btn" id="pag-next-btn" onclick="changeEcomPage('next')" title="Next Page">Next ›</button>
+              <button class="pag-btn" id="pag-last-btn" onclick="changeEcomPage('last')" title="Last Page">Last »</button>
+            </div>
+            <div class="pagination-size">
+              <label for="page-size-select">Per page:</label>
+              <select id="page-size-select" onchange="changeEcomPageSize(this.value)">
+                <option value="24" selected>24</option>
+                <option value="48">48</option>
+                <option value="96">96</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>

@@ -152,3 +152,144 @@
 2026-08-26 11:15:01 | INFO     | FlipkartScraper | Flipkart scrape complete. Extracted 0 products for 'Realme Narzo 70'.
 2026-08-26 11:15:01 | INFO     | scraper.ecommerce_tracker | Saved 10 products to raw CSV: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\raw\ecommerce_scrape_realme_narzo_70_20260826_111501.csv
 2026-08-26 11:18:37 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:28:05 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:28:05 | INFO     | api.main | ============================================================
+2026-08-26 11:28:05 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:28:05 | INFO     | api.main |   Starting up...
+2026-08-26 11:28:05 | INFO     | api.main | ============================================================
+2026-08-26 11:28:05 | INFO     | api.main | Database schema ready.
+2026-08-26 11:28:05 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:28:05 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:28:05 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:28:05 | INFO     | api.main | Startup complete in 0.12s — listening on 0.0.0.0:8000
+2026-08-26 11:29:55 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:29:55 | INFO     | httpx | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2026-08-26 11:33:01 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:33:14 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:33:14 | INFO     | api.main | ============================================================
+2026-08-26 11:33:14 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:33:15 | INFO     | api.main |   Starting up...
+2026-08-26 11:33:15 | INFO     | api.main | ============================================================
+2026-08-26 11:33:15 | INFO     | api.main | Database schema ready.
+2026-08-26 11:33:15 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:33:15 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:33:15 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:33:15 | INFO     | api.main | Startup complete in 0.09s — listening on 0.0.0.0:8000
+2026-08-26 11:34:05 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:34:05 | INFO     | __main__ | Starting generation of 100000 goods across 10 departments...
+2026-08-26 11:34:20 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:34:27 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:34:27 | INFO     | api.main | ============================================================
+2026-08-26 11:34:27 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:34:27 | INFO     | api.main |   Starting up...
+2026-08-26 11:34:27 | INFO     | api.main | ============================================================
+2026-08-26 11:34:27 | INFO     | api.main | Database schema ready.
+2026-08-26 11:34:27 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:34:27 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:34:27 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:34:27 | INFO     | api.main | Startup complete in 0.08s — listening on 0.0.0.0:8000
+2026-08-26 11:34:55 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:34:55 | INFO     | __main__ | Starting generation of 100000 goods across 10 departments...
+2026-08-26 11:34:55 | INFO     | __main__ | Generating 20000 items for category: 🥦 Eatables & Grocery...
+2026-08-26 11:34:56 | INFO     | __main__ | Inserted batch... total committed: 20000 rows
+2026-08-26 11:34:56 | INFO     | __main__ | Generating 20000 items for category: 👕 Clothes & Fashion...
+2026-08-26 11:34:57 | INFO     | __main__ | Inserted batch... total committed: 40000 rows
+2026-08-26 11:34:57 | INFO     | __main__ | Generating 15000 items for category: 📱 Electronics & Mobiles...
+2026-08-26 11:34:58 | INFO     | __main__ | Generating 10000 items for category: 💻 Laptops & Computers...
+2026-08-26 11:34:59 | INFO     | __main__ | Inserted batch... total committed: 60000 rows
+2026-08-26 11:34:59 | INFO     | __main__ | Generating 10000 items for category: 🎧 Audio & Earbuds...
+2026-08-26 11:34:59 | INFO     | __main__ | Generating 8000 items for category: ⌚ Smartwatches & Wearables...
+2026-08-26 11:35:00 | INFO     | __main__ | Inserted batch... total committed: 80000 rows
+2026-08-26 11:35:00 | INFO     | __main__ | Generating 7000 items for category: 🏠 Home & Kitchen Appliances...
+2026-08-26 11:35:00 | INFO     | __main__ | Generating 5000 items for category: 💄 Beauty & Personal Care...
+2026-08-26 11:35:01 | INFO     | __main__ | Generating 3000 items for category: 🎮 Gaming & Toys...
+2026-08-26 11:35:01 | INFO     | __main__ | Generating 2000 items for category: 🏋️ Sports & Fitness...
+2026-08-26 11:35:02 | INFO     | __main__ | Inserted batch... total committed: 100000 rows
+2026-08-26 11:35:02 | INFO     | __main__ | Successfully seeded 100000 goods into SQLite database in 7.27 seconds!
+2026-08-26 11:35:02 | INFO     | __main__ | Database file: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\db\pricing_engine.db (Size: 47.77 MB)
+2026-08-26 11:35:26 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:35:32 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:35:32 | INFO     | api.main | ============================================================
+2026-08-26 11:35:32 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:35:32 | INFO     | api.main |   Starting up...
+2026-08-26 11:35:32 | INFO     | api.main | ============================================================
+2026-08-26 11:35:32 | INFO     | api.main | Database schema ready.
+2026-08-26 11:35:32 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:35:32 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:35:32 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:35:32 | INFO     | api.main | Startup complete in 0.10s — listening on 0.0.0.0:8000
+2026-08-26 11:35:47 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:35:48 | INFO     | httpx | HTTP Request: GET http://testserver/api/v1/market/ecommerce-catalog?page=1&page_size=5 "HTTP/1.1 200 OK"
+2026-08-26 11:40:14 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:40:14 | INFO     | httpx | HTTP Request: GET http://testserver/api/v1/market/ecommerce-catalog?category=grocery&page=1&page_size=3 "HTTP/1.1 200 OK"
+2026-08-26 11:45:21 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:45:28 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:45:28 | INFO     | api.main | ============================================================
+2026-08-26 11:45:28 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:45:28 | INFO     | api.main |   Starting up...
+2026-08-26 11:45:28 | INFO     | api.main | ============================================================
+2026-08-26 11:45:28 | INFO     | api.main | Database schema ready.
+2026-08-26 11:45:28 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:45:28 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:45:28 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:45:28 | INFO     | api.main | Startup complete in 0.24s — listening on 0.0.0.0:8000
+2026-08-26 11:46:35 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:46:35 | INFO     | __main__ | Starting generation of 100000 goods across 10 departments...
+2026-08-26 11:46:35 | INFO     | __main__ | Generating 20000 items for category: 🥦 Eatables & Grocery...
+2026-08-26 11:46:48 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:46:54 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:46:54 | INFO     | api.main | ============================================================
+2026-08-26 11:46:54 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:46:54 | INFO     | api.main |   Starting up...
+2026-08-26 11:46:54 | INFO     | api.main | ============================================================
+2026-08-26 11:46:54 | INFO     | api.main | Database schema ready.
+2026-08-26 11:46:54 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:46:54 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:46:54 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:46:54 | INFO     | api.main | Startup complete in 0.08s — listening on 0.0.0.0:8000
+2026-08-26 11:47:01 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:47:01 | INFO     | __main__ | Starting generation of 100000 goods across 10 departments...
+2026-08-26 11:47:01 | INFO     | __main__ | Generating 20000 items for category: 🥦 Eatables & Grocery...
+2026-08-26 11:47:10 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:47:16 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:47:16 | INFO     | api.main | ============================================================
+2026-08-26 11:47:17 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:47:17 | INFO     | api.main |   Starting up...
+2026-08-26 11:47:17 | INFO     | api.main | ============================================================
+2026-08-26 11:47:17 | INFO     | api.main | Database schema ready.
+2026-08-26 11:47:17 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:47:17 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:47:17 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:47:17 | INFO     | api.main | Startup complete in 0.13s — listening on 0.0.0.0:8000
+2026-08-26 11:47:25 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:47:25 | INFO     | __main__ | Starting generation of 100000 goods across 10 departments...
+2026-08-26 11:47:25 | INFO     | __main__ | Generating 20000 items for category: 🥦 Eatables & Grocery...
+2026-08-26 11:47:28 | INFO     | __main__ | Inserted batch... total committed: 20000 rows
+2026-08-26 11:47:28 | INFO     | __main__ | Generating 20000 items for category: 👕 Clothes & Fashion...
+2026-08-26 11:47:31 | INFO     | __main__ | Inserted batch... total committed: 40000 rows
+2026-08-26 11:47:31 | INFO     | __main__ | Generating 15000 items for category: 📱 Electronics & Mobiles...
+2026-08-26 11:47:33 | INFO     | __main__ | Generating 10000 items for category: 💻 Laptops & Computers...
+2026-08-26 11:47:35 | INFO     | __main__ | Inserted batch... total committed: 60000 rows
+2026-08-26 11:47:36 | INFO     | __main__ | Generating 10000 items for category: 🎧 Audio & Earbuds...
+2026-08-26 11:47:37 | INFO     | __main__ | Generating 8000 items for category: ⌚ Smartwatches & Wearables...
+2026-08-26 11:47:39 | INFO     | __main__ | Inserted batch... total committed: 80000 rows
+2026-08-26 11:47:40 | INFO     | __main__ | Generating 7000 items for category: 🏠 Home & Kitchen Appliances...
+2026-08-26 11:47:41 | INFO     | __main__ | Generating 5000 items for category: 💄 Beauty & Personal Care...
+2026-08-26 11:47:41 | INFO     | __main__ | Generating 3000 items for category: 🎮 Gaming & Toys...
+2026-08-26 11:47:41 | INFO     | __main__ | Generating 2000 items for category: 🏋️ Sports & Fitness...
+2026-08-26 11:47:43 | INFO     | __main__ | Inserted batch... total committed: 100000 rows
+2026-08-26 11:47:44 | INFO     | __main__ | Successfully seeded 100000 goods into SQLite database in 18.88 seconds!
+2026-08-26 11:47:44 | INFO     | __main__ | Database file: C:\Users\Dell\Desktop\WebScraper\competitor-pricing-engine\data\db\pricing_engine.db (Size: 74.88 MB)
+2026-08-26 11:47:55 | INFO     | api.main | Shutting down Competitor Intelligence & Dynamic Pricing Engine...
+2026-08-26 11:48:02 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:48:02 | INFO     | api.main | ============================================================
+2026-08-26 11:48:02 | INFO     | api.main |   Competitor Intelligence & Dynamic Pricing Engine  v1.0.0
+2026-08-26 11:48:02 | INFO     | api.main |   Starting up...
+2026-08-26 11:48:02 | INFO     | api.main | ============================================================
+2026-08-26 11:48:02 | INFO     | api.main | Database schema ready.
+2026-08-26 11:48:02 | INFO     | PricingPredictor | Model loaded from: models\pricing_model.joblib
+2026-08-26 11:48:02 | INFO     | PricingPredictor | PricingPredictor loaded — R2=0.9999, features=15
+2026-08-26 11:48:02 | INFO     | api.main | ML model pre-warmed and ready.
+2026-08-26 11:48:02 | INFO     | api.main | Startup complete in 0.41s — listening on 0.0.0.0:8000
+2026-08-26 11:54:51 | INFO     | root | Logger initialised — level: INFO, log file: logs\pricing_engine.log
+2026-08-26 11:54:51 | INFO     | httpx | HTTP Request: GET http://testserver/api/v1/market/ecommerce-catalog?page=1&page_size=2 "HTTP/1.1 200 OK"
