@@ -122,6 +122,11 @@ class EcommerceTracker:
             
             sku_prefix = "FLP" if target_store == "Flipkart" else "AMZ"
             clean_name = item.get("title", "").replace("Amazon: ", "").replace("Flipkart: ", "")
+            enc_name = urllib_quote(clean_name)
+            if target_store == "Flipkart":
+                store_url = f"https://www.flipkart.com/search?q={enc_name}"
+            else:
+                store_url = f"https://www.amazon.in/s?k={enc_name}"
 
             derived.append({
                 "sku": f"{sku_prefix}-{abs(hash(clean_name)) % 1000000}",
@@ -135,7 +140,7 @@ class EcommerceTracker:
                 "review_count": max(10, int((item.get("review_count") or 100) * random.uniform(0.7, 1.3))),
                 "availability": "In Stock",
                 "competitor_name": target_store,
-                "product_url": f"https://www.{target_store.lower().replace(' ', '')}.com/search?q={urllib_quote(clean_name[:30])}",
+                "product_url": store_url,
                 "image_url": item.get("image_url", ""),
                 "scraped_at": datetime.now(timezone.utc).isoformat(),
             })

@@ -367,4 +367,4 @@ def generate_and_seed_100k(total_records: int = 100000) -> None:
 
 if __name__ == "__main__":
     setup_logger()
-    generate_and_seed_100k(100000)
+    generate_and_seed_100k(500000)

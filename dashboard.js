@@ -568,8 +568,8 @@ let currentEcomView = 'grid';
 let ecomPage = 1;
 let ecomPageSize = 24;
 let ecomSortBy = 'gap_desc';
-let totalEcomPages = 4166;
-let totalEcomRecords = 100000;
+let totalEcomPages = 20833;
+let totalEcomRecords = 500000;
 let searchDebounceTimer = null;
 
 function selectEcomCategory(category) {
@@ -692,6 +692,9 @@ function getClientFilteredCatalog(query) {
     const minP = Math.min(item.amz, item.flp);
     const maxP = Math.max(item.amz, item.flp);
     const pct = Math.round(((maxP - minP) / maxP) * 1000) / 10;
+    const encTitle = encodeURIComponent(item.title);
+    const amzDirectUrl = item.amazon_url || `https://www.amazon.in/s?k=${encTitle}`;
+    const flpDirectUrl = item.flipkart_url || `https://www.flipkart.com/search?q=${encTitle}`;
     return {
       ...item,
       product_name: item.title,
@@ -699,8 +702,10 @@ function getClientFilteredCatalog(query) {
       diff_percentage: pct,
       cheaper_store: item.amz < item.flp ? 'Amazon India' : (item.flp < item.amz ? 'Flipkart' : 'Equal'),
       optimal_price: Math.round(minP * 0.98),
-      amazon: { title: `Amazon: ${item.title}`, price: item.amz, mrp: item.mrp, rating: item.ratingA, url: 'https://www.amazon.in' },
-      flipkart: { title: `Flipkart: ${item.title}`, price: item.flp, mrp: item.mrp, rating: item.ratingF, url: 'https://www.flipkart.com' },
+      amazon_url: amzDirectUrl,
+      flipkart_url: flpDirectUrl,
+      amazon: { title: `Amazon: ${item.title}`, price: item.amz, mrp: item.mrp, rating: item.ratingA, url: amzDirectUrl },
+      flipkart: { title: `Flipkart: ${item.title}`, price: item.flp, mrp: item.mrp, rating: item.ratingF, url: flpDirectUrl },
     };
   });
 
@@ -736,10 +741,10 @@ function updateEcommercePaginationUI(data) {
 }
 
 function updateEcommerceStats(stats, totalGoods) {
-  if ($('count-all')) $('count-all').textContent = '100,000+';
-  if ($('stat-total-goods')) $('stat-total-goods').textContent = `${(stats.total || totalGoods || 100000).toLocaleString()} Goods`;
-  if ($('stat-amz-cheaper')) $('stat-amz-cheaper').textContent = `${(stats.amz_cheaper || 49200).toLocaleString()} Items`;
-  if ($('stat-flp-cheaper')) $('stat-flp-cheaper').textContent = `${(stats.flp_cheaper || 50800).toLocaleString()} Items`;
+  if ($('count-all')) $('count-all').textContent = '500,000+';
+  if ($('stat-total-goods')) $('stat-total-goods').textContent = `${(stats.total || totalGoods || 500000).toLocaleString()} Goods`;
+  if ($('stat-amz-cheaper')) $('stat-amz-cheaper').textContent = `${(stats.amz_cheaper || 249200).toLocaleString()} Items`;
+  if ($('stat-flp-cheaper')) $('stat-flp-cheaper').textContent = `${(stats.flp_cheaper || 250800).toLocaleString()} Items`;
   if ($('stat-avg-gap')) $('stat-avg-gap').textContent = `₹${(Math.round(stats.avg_gap) || 450).toLocaleString('en-IN')}`;
 }
 
