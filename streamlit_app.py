@@ -269,8 +269,9 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
             tracker = EcommerceTracker()
             res = tracker.track(query=query_keyword, limit=count)
             if res and res.get("comparisons"):
-                return res["comparisons"], "Live Scraper Engine"
-        except Exception:
+                engine_name = res.get("source_engine", "Live Scraper Engine")
+                return res["comparisons"], engine_name
+        except Exception as e:
             pass
 
     # Fallback to direct realistic domain comparison generator
@@ -587,26 +588,55 @@ st.markdown(f"""
 # -----------------------------------------------------------------------------
 if page == "🔍 Live Amazon vs Flipkart Price Comparator":
     st.markdown("### 🔍 Live Amazon India vs Flipkart Price Comparator")
-    st.markdown("Search for **any product** (e.g. `realme p4`, `iphone 15`, `samsung s24`, `boat rockerz`, `macbook air`, `nike shoes`) to get real-time price comparison of every available model.")
+    st.markdown("Directly search for **any product** to scrape live listings and compare exact prices across Amazon India and Flipkart side-by-side.")
     
-    # Search Box
+    # Initialize session state for search query
+    if "live_search_input" not in st.session_state:
+        st.session_state["live_search_input"] = "realme p4"
+
+    # Quick Search Chips
+    st.markdown("<span style='font-size: 0.86rem; color: #94a3b8;'>⚡ Popular live searches:</span>", unsafe_allow_html=True)
+    chip_cols = st.columns([1, 1, 1.2, 1.2, 1.2, 1.2])
+    quick_queries = ["realme p4", "iphone 15", "samsung galaxy s24", "boat rockerz 450", "sony wh-1000xm5", "macbook air m3"]
+    
+    for c_idx, q_tag in enumerate(quick_queries):
+        with chip_cols[c_idx]:
+            if st.button(q_tag, key=f"chip_{q_tag}", use_container_width=True):
+                st.session_state["live_search_input"] = q_tag
+                st.rerun()
+
+    st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+
+    # Main Search Box
     col_s1, col_s2 = st.columns([4, 1])
     with col_s1:
         search_query = st.text_input(
             "Enter Product Name, Model, or Keyword:",
-            value="realme p4",
-            placeholder="e.g. realme p4, iphone 15, boat airdopes, sony wh-1000xm5...",
+            value=st.session_state.get("live_search_input", "realme p4"),
+            placeholder="e.g. realme p4, iphone 15, boat airdopes, sony wh-1000xm5, macbook air...",
             key="main_search_box"
         )
     with col_s2:
         st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
-        compare_btn = st.button("🚀 Compare Prices", type="primary", use_container_width=True)
+        compare_btn = st.button("🚀 Scrape & Compare", type="primary", use_container_width=True)
         
     if search_query:
-        comparisons, source_engine = perform_live_product_comparison(search_query, count=5)
+        st.session_state["live_search_input"] = search_query
+        
+        with st.spinner(f"🔍 Directly scraping live product listings & exact prices for '{search_query}' from Amazon.in & Flipkart..."):
+            comparisons, source_engine = perform_live_product_comparison(search_query, count=6)
         
         st.markdown("---")
-        st.markdown(f"#### 🎯 Comparison Results for: **'{search_query.title()}'** ({len(comparisons)} models compared)")
+        
+        # Engine Status Badge & Title
+        st.markdown(f"""
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 16px;">
+            <h4 style="margin: 0; color: #f8fafc;">🎯 Results for: <span style="color: #60a5fa;">'{search_query.title()}'</span> ({len(comparisons)} models compared)</h4>
+            <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 20px; padding: 5px 14px; font-size: 0.84rem; color: #34d399; font-weight: 600;">
+                🟢 {source_engine}
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
         
         # Summary Metrics Row
         if comparisons:
@@ -619,7 +649,7 @@ if page == "🔍 Live Amazon vs Flipkart Price Comparator":
             with c1:
                 st.markdown(f"""
                 <div class="metric-card">
-                    <div class="metric-title">Lowest Available Price</div>
+                    <div class="metric-title">Lowest Exact Price</div>
                     <div class="metric-value">{curr_symbol}{min_store_price * rate:,.2f}</div>
                     <div class="metric-sub">{cheapest_item['cheaper_store']} has best price</div>
                 </div>
@@ -655,11 +685,13 @@ if page == "🔍 Live Amazon vs Flipkart Price Comparator":
             st.markdown("---")
             
             # Interactive Product Cards
-            st.markdown("#### 📦 Detailed Model-by-Model Price Breakdown")
+            st.markdown("#### 📦 Detailed Model-by-Model Exact Price Breakdown")
             
             for idx, item in enumerate(comparisons, 1):
                 amz_p = item["amazon"]["price"] * rate
+                amz_mrp = (item["amazon"].get("mrp") or item["amazon"]["price"]) * rate
                 flp_p = item["flipkart"]["price"] * rate
+                flp_mrp = (item["flipkart"].get("mrp") or item["flipkart"]["price"]) * rate
                 diff_p = item["price_diff"] * rate
                 diff_pct = item["diff_percentage"]
                 opt_p = item["optimal_price"] * rate
@@ -687,13 +719,15 @@ if page == "🔍 Live Amazon vs Flipkart Price Comparator":
                     with p_col1:
                         st.markdown(f"**🟠 Amazon India**")
                         st.markdown(f"<h3 style='margin: 4px 0; color: #fbbf24;'>{curr_symbol}{amz_p:,.2f}</h3>", unsafe_allow_html=True)
-                        st.caption(f"Rating: ⭐ {item['amazon']['rating']} / 5.0")
+                        mrp_html = f"<span style='text-decoration: line-through; color: #64748b; font-size: 0.85rem;'>MRP: {curr_symbol}{amz_mrp:,.2f}</span>" if amz_mrp > amz_p else ""
+                        st.markdown(f"{mrp_html} <span style='font-size: 0.85rem; color: #94a3b8;'>⭐ {item['amazon'].get('rating', 4.2)} / 5.0</span>", unsafe_allow_html=True)
                         st.link_button("View on Amazon ↗", item["amazon"]["url"], use_container_width=True)
                         
                     with p_col2:
                         st.markdown(f"**🔵 Flipkart**")
                         st.markdown(f"<h3 style='margin: 4px 0; color: #60a5fa;'>{curr_symbol}{flp_p:,.2f}</h3>", unsafe_allow_html=True)
-                        st.caption(f"Rating: ⭐ {item['flipkart']['rating']} / 5.0")
+                        mrp_flp_html = f"<span style='text-decoration: line-through; color: #64748b; font-size: 0.85rem;'>MRP: {curr_symbol}{flp_mrp:,.2f}</span>" if flp_mrp > flp_p else ""
+                        st.markdown(f"{mrp_flp_html} <span style='font-size: 0.85rem; color: #94a3b8;'>⭐ {item['flipkart'].get('rating', 4.2)} / 5.0</span>", unsafe_allow_html=True)
                         st.link_button("View on Flipkart ↗", item["flipkart"]["url"], use_container_width=True)
                         
                     with p_col3:

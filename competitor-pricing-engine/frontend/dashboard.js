@@ -775,8 +775,16 @@ async function trackEcommerce(e) {
 
     if (liveData && liveData.comparisons && liveData.comparisons.length > 0) {
       showToast(`Scraped & matched ${liveData.comparisons.length} live products from Amazon & Flipkart!`, 'success');
+      renderEcommerceViews(liveData.comparisons);
+      updateEcommerceStats({
+        total: liveData.comparisons.length,
+        amz_cheaper: liveData.comparisons.filter(c => c.cheaper_store === 'Amazon India').length,
+        flp_cheaper: liveData.comparisons.filter(c => c.cheaper_store === 'Flipkart').length,
+        avg_gap: liveData.comparisons.reduce((acc, c) => acc + (c.price_diff || 0), 0) / liveData.comparisons.length
+      });
+      return;
     } else {
-      showToast(`Searching 100,000+ catalog for "${query}"`, 'info');
+      showToast(`Searching catalog for "${query}"`, 'info');
     }
 
     ecomPage = 1;

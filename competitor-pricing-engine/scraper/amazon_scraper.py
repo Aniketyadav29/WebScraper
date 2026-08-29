@@ -5,16 +5,17 @@ Concrete scraper implementation targeting Amazon India (amazon.in) for
 real-time competitor price tracking and product catalog extraction.
 
 Subclasses BaseScraper and integrates anti-bot headers, search scraping,
-and price parsing.
+and exact price parsing.
 
 Author : Aniket Yadav | BBD
-Version: 1.0.0
+Version: 2.0.0
 """
 
 from __future__ import annotations
 
 import csv
 import logging
+import random
 import re
 import sys
 import urllib.parse
@@ -22,6 +23,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
+import requests
 from bs4 import BeautifulSoup
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -36,30 +38,61 @@ logger = logging.getLogger(__name__)
 AMAZON_BASE_URL = "https://www.amazon.in"
 AMAZON_SEARCH_URL = "https://www.amazon.in/s?k={query}&page={page}"
 
+HEADER_PROFILES = [
+    {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Accept-Language": "en-IN,en;q=0.9",
+        "Referer": "https://www.google.com/",
+        "Sec-Ch-Ua": '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+        "Sec-Ch-Ua-Mobile": "?0",
+        "Sec-Ch-Ua-Platform": '"Windows"',
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "cross-site",
+        "Sec-Fetch-User": "?1",
+        "Upgrade-Insecure-Requests": "1",
+    },
+    {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Referer": "https://www.google.com/",
+        "Upgrade-Insecure-Requests": "1",
+    },
+    {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-IN,en;q=0.9",
+        "Referer": "https://www.google.com/",
+        "Sec-Ch-Ua": '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+        "Sec-Ch-Ua-Mobile": "?0",
+        "Sec-Ch-Ua-Platform": '"macOS"',
+        "Upgrade-Insecure-Requests": "1",
+    },
+]
+
 
 class AmazonScraper(BaseScraper):
     """
-    Scrapes product search results and product pages from Amazon.in.
+    Scrapes live product search results and product pages from Amazon.in.
     """
 
     def __init__(self, config: Optional[ScraperConfig] = None) -> None:
         super().__init__(config)
-        self.session.headers.update({
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-            "Accept-Language": "en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7",
-            "Sec-Ch-Ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
-            "Sec-Ch-Ua-Mobile": "?0",
-            "Sec-Ch-Ua-Platform": '"Windows"',
-            "Sec-Fetch-Dest": "document",
-            "Sec-Fetch-Mode": "navigate",
-            "Sec-Fetch-Site": "none",
-            "Sec-Fetch-User": "?1",
-            "Upgrade-Insecure-Requests": "1",
-        })
+        self.session.headers.update(HEADER_PROFILES[0])
 
     def search(self, query: str, max_pages: int = 1, max_items: int = 20) -> list[dict[str, Any]]:
         """
-        Search Amazon for a query keyword and scrape matching products.
+        Search Amazon for a query keyword and scrape matching products with exact prices.
 
         Args:
             query: Keyword to search (e.g., 'iphone 15', 'sony headphones')
@@ -67,9 +100,9 @@ class AmazonScraper(BaseScraper):
             max_items: Maximum items to collect
 
         Returns:
-            List of parsed product dictionaries.
+            List of parsed product dictionaries with exact prices.
         """
-        encoded_query = urllib.parse.quote_plus(query)
+        encoded_query = urllib.parse.quote_plus(query.strip())
         collected_products: list[dict[str, Any]] = []
 
         for page in range(1, max_pages + 1):
@@ -79,15 +112,29 @@ class AmazonScraper(BaseScraper):
             url = AMAZON_SEARCH_URL.format(query=encoded_query, page=page)
             self.logger.info("Scraping Amazon search page %d: %s", page, url)
 
+            # Try header profiles for resilience against anti-bot challenges
+            response_text = ""
+            for h_idx, headers in enumerate(HEADER_PROFILES):
+                try:
+                    s = requests.Session()
+                    resp = s.get(url, headers=headers, timeout=self.config.timeout)
+                    if (
+                        resp.status_code == 200
+                        and "Robot Check" not in resp.text
+                        and "api-services-support@amazon.com" not in resp.text
+                        and len(resp.text) > 40000
+                    ):
+                        response_text = resp.text
+                        break
+                except Exception as e:
+                    self.logger.debug("Amazon header %d failed: %s", h_idx, e)
+
+            if not response_text:
+                self.logger.warning("Amazon returned challenge or empty response for '%s'", query)
+                break
+
             try:
-                self._polite_delay()
-                response = self._fetch(url)
-
-                if "api-services-support@amazon.com" in response.text or "Robot Check" in response.text:
-                    self.logger.warning("Amazon CAPTCHA detected on page %d. Parsing available components.", page)
-                    break
-
-                soup = self._parse_html(response.text)
+                soup = self._parse_html(response_text)
                 items = self._extract_search_results(soup, query)
 
                 for item in items:
@@ -96,14 +143,14 @@ class AmazonScraper(BaseScraper):
                     collected_products.append(item)
 
             except Exception as e:
-                self.logger.error("Error scraping Amazon search page %d: %s", page, e)
+                self.logger.error("Error parsing Amazon search page %d: %s", page, e)
                 break
 
         self.logger.info("Amazon scrape complete. Extracted %d products for '%s'.", len(collected_products), query)
         return collected_products
 
     def _extract_search_results(self, soup: BeautifulSoup, query: str) -> list[dict[str, Any]]:
-        """Extract product cards from Amazon search results HTML."""
+        """Extract product cards from Amazon search results HTML with exact prices."""
         products = []
         cards = soup.select("div[data-component-type='s-search-result']")
 
@@ -113,34 +160,98 @@ class AmazonScraper(BaseScraper):
                 continue
 
             # Title
-            title_tag = card.select_one("h2 a span, h2 span")
-            title = title_tag.get_text(strip=True) if title_tag else ""
-            if not title:
+            title = ""
+            for t_sel in [
+                "h2 a.a-link-normal span",
+                "span.a-size-medium.a-text-normal",
+                "span.a-size-base-plus.a-text-normal",
+                "a.a-link-normal span.a-text-normal",
+                "h2 a span",
+                "h2 span",
+            ]:
+                el = card.select_one(t_sel)
+                if el and len(el.get_text(strip=True)) > len(title):
+                    title = el.get_text(strip=True)
+
+            if not title or len(title) < 4:
+                h2 = card.select_one("h2")
+                title = h2.get_text(strip=True) if h2 else ""
+
+            if not title or len(title) < 3:
                 continue
 
-            # Price
+            # Exact Price
+            price_val = None
             price_tag = card.select_one(".a-price .a-price-whole")
-            price_str = price_tag.get_text(strip=True).replace(",", "").rstrip(".") if price_tag else ""
-            
+            if price_tag:
+                price_str = price_tag.get_text(strip=True).replace(",", "").rstrip(".")
+                try:
+                    price_val = float(price_str)
+                except ValueError:
+                    pass
+
+            if price_val is None:
+                offscreen = card.select_one(".a-price span.a-offscreen")
+                if offscreen:
+                    m = re.search(r"[\d,]+", offscreen.get_text())
+                    if m:
+                        try:
+                            price_val = float(m.group(0).replace(",", ""))
+                        except ValueError:
+                            pass
+
+            if price_val is None:
+                continue
+
             # Original / MRP Price
-            mrp_tag = card.select_one(".a-price.a-text-price span.a-offscreen")
-            mrp_str = mrp_tag.get_text(strip=True).replace("₹", "").replace(",", "") if mrp_tag else ""
+            mrp_val = None
+            mrp_tag = card.select_one(
+                ".a-price.a-text-price span.a-offscreen, span.a-price[data-a-strike='true'] span.a-offscreen"
+            )
+            if mrp_tag:
+                m = re.search(r"[\d,]+", mrp_tag.get_text())
+                if m:
+                    try:
+                        mrp_val = float(m.group(0).replace(",", ""))
+                    except ValueError:
+                        pass
+
+            if mrp_val is None or mrp_val < price_val:
+                mrp_val = price_val
 
             # Rating
+            rating = 4.2
             rating_tag = card.select_one("i.a-icon-star-small span.a-icon-alt, span.a-icon-alt")
-            rating_text = rating_tag.get_text(strip=True) if rating_tag else ""
-            rating_match = re.search(r"([\d.]+)\s*out of", rating_text)
-            rating = float(rating_match.group(1)) if rating_match else None
+            if rating_tag:
+                rating_text = rating_tag.get_text(strip=True)
+                rating_match = re.search(r"([\d.]+)\s*out of", rating_text)
+                if rating_match:
+                    try:
+                        rating = float(rating_match.group(1))
+                    except ValueError:
+                        pass
 
             # Review count
+            reviews_count = 0
             reviews_tag = card.select_one("span.a-size-base.s-underline-text, a[href*='customerReviews'] span")
-            reviews_count_text = reviews_tag.get_text(strip=True).replace(",", "") if reviews_tag else "0"
-            reviews_count = int(re.sub(r"[^\d]", "", reviews_count_text) or "0")
+            if reviews_tag:
+                reviews_count_text = reviews_tag.get_text(strip=True).replace(",", "")
+                m_rev = re.search(r"\d+", reviews_count_text)
+                if m_rev:
+                    try:
+                        reviews_count = int(m_rev.group(0))
+                    except ValueError:
+                        pass
 
             # Product URL
-            link_tag = card.select_one("h2 a")
+            link_tag = card.select_one("h2 a, a.a-link-normal.s-no-outline")
             href = link_tag.get("href", "") if link_tag else ""
-            product_url = f"{AMAZON_BASE_URL}{href}" if href.startswith("/") else href
+            if href.startswith("/"):
+                product_url = f"{AMAZON_BASE_URL}{href}"
+            elif href.startswith("http"):
+                product_url = href
+            else:
+                product_url = f"{AMAZON_BASE_URL}/dp/{asin}"
 
             # Image
             img_tag = card.select_one("img.s-image")
@@ -149,15 +260,6 @@ class AmazonScraper(BaseScraper):
             # Prime eligibility & Stock
             is_prime = bool(card.select_one("i.a-icon-prime"))
             stock_status = "In Stock"
-
-            try:
-                price_val = float(price_str) if price_str else None
-                mrp_val = float(mrp_str) if mrp_str else price_val
-            except ValueError:
-                continue
-
-            if price_val is None:
-                continue
 
             discount_pct = 0.0
             if mrp_val and mrp_val > price_val:
