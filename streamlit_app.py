@@ -399,24 +399,43 @@ def perform_live_product_comparison(query_keyword: str, count: int = 6):
             f"{title_q} 50-Inch Bezel-less Smart LED TV",
             f"{title_q} Complete Installation Kit & High-Speed Cable"
         ]
-    # 12. Grocery & Gourmet
-    elif any(w in q_lower for w in ["coffee", "tea", "almond", "biscuit", "grocery", "oil", "ghee", "protein", "whey", "nut", "honey"]):
-        base_price = 499.0
+    # 12. Edible Oils, Fortune, Grocery & Nutrition
+    elif any(w in q_lower for w in ["fortune", "oil", "mustard", "sunflower", "refined", "soyabean", "olive", "ghee", "rice bran", "canola"]):
+        base_price = 195.0
+        if "fortune" in q_lower:
+            variants = [
+                "Fortune Premium Kachi Ghani Pure Mustard Oil (1L Bottle)",
+                "Fortune Sunlite Refined Sunflower Oil (1L Pouch)",
+                "Fortune Rice Bran Health Physically Refined Oil (1L)",
+                "Fortune Soya Health Refined Soyabean Oil (1L Pouch)",
+                "Fortune Kachi Ghani Pure Mustard Oil (2 x 1L Value Pack)",
+            ]
+        else:
+            variants = [
+                f"{title_q} Pure Mustard Oil (1 Litre Bottle)",
+                f"{title_q} Refined Sunflower Cooking Oil (1 Litre Pouch)",
+                f"{title_q} Physically Refined Rice Bran Health Oil (1L)",
+                f"{title_q} Soya Health Cooking Oil (1 Litre Pouch)",
+                f"{title_q} Cold Pressed Cooking Oil (Pack of 2 x 1L)",
+            ]
+    # 13. Other Grocery & Nutrition
+    elif any(w in q_lower for w in ["coffee", "tea", "almond", "biscuit", "grocery", "protein", "whey", "nut", "honey", "atta", "rice", "dal"]):
+        base_price = 349.0
         variants = [
-            f"{title_q} 200g Glass Jar / Value Pack",
-            f"{title_q} 500g Value Saver Pouch",
-            f"{title_q} 1kg Economy Mega Pack",
-            f"{title_q} Premium Reserve Blend",
-            f"{title_q} Buy 1 Get 1 Special Value Bundle"
+            f"{title_q} Premium Pack (500g)",
+            f"{title_q} Economy Saver Pouch (1 kg)",
+            f"{title_q} Family Mega Value Pack (2 kg)",
+            f"{title_q} Organic Reserve Edition",
+            f"{title_q} Value Combo (Pack of 2)",
         ]
     else:
         base_price = 1499.0
         variants = [
-            f"{title_q} - Standard Edition (Model A)",
-            f"{title_q} - Plus Variant with Enhanced Durability",
-            f"{title_q} - Pro Series Premium Edition",
-            f"{title_q} - Value Combo Pack",
-            f"{title_q} - Accessories & Maintenance Kit"
+            f"{title_q} - Standard Edition",
+            f"{title_q} - Plus Variant",
+            f"{title_q} - Pro Series Edition",
+            f"{title_q} - Multi-Pack Value Combo",
+            f"{title_q} - Accessories & Maintenance Kit",
         ]
 
     comparisons = []
@@ -1066,20 +1085,18 @@ elif page == "🔄 Scraping & Pipeline Monitor":
         trigger_scrape = st.button("🚀 Trigger Live Scrape", type="primary", use_container_width=True)
         
     if test_product and trigger_scrape:
-        with st.status(f"Scraping competitor portals for '{test_product}'...", expanded=True) as status:
-            st.write("🔍 Initializing scraper agents with anti-detection headers...")
-            time.sleep(0.5)
-            st.write("📦 Querying Amazon India catalogue...")
-            time.sleep(0.4)
-            st.write("🛒 Querying Flipkart catalogue...")
-            time.sleep(0.4)
-            st.write("🤖 Normalizing currency and feeding features into ML Pricing Engine...")
-            time.sleep(0.3)
-            status.update(label="Scraping & Price Optimization Complete!", state="complete", expanded=False)
+        with st.spinner(f"🔍 Directly scraping live products & exact prices for '{test_product}' from Amazon.in & Flipkart..."):
+            test_comps, source_engine = perform_live_product_comparison(test_product, count=6)
             
-        test_comps, _ = perform_live_product_comparison(test_product, count=4)
         if test_comps:
-            st.success(f"Retrieved {len(test_comps)} live competitor items for **'{test_product}'**!")
+            st.markdown(f"""
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 14px;">
+                <span style="font-size: 1rem; color: #f8fafc; font-weight: 600;">Retrieved {len(test_comps)} live competitor items for <span style="color: #60a5fa;">'{test_product}'</span></span>
+                <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 20px; padding: 4px 12px; font-size: 0.82rem; color: #34d399; font-weight: 600;">
+                    🟢 {source_engine}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
             
             top_item = test_comps[0]
             amz_p = top_item["amazon"]["price"] * rate
@@ -1094,11 +1111,11 @@ elif page == "🔄 Scraping & Pipeline Monitor":
             c_res3.metric("AI Optimal Price", f"{curr_symbol}{opt_p:,.2f}", delta="-2% to capture market")
             c_res4.metric("Cheaper Store", cheaper, delta=f"{curr_symbol}{diff_p:,.2f} gap" if diff_p > 0 else "Equal")
             
-            st.markdown("##### 📋 Matched Variants Comparison")
+            st.markdown("##### 📋 Matched Real-World Product Price Matrix")
             sim_rows = []
             for item in test_comps:
                 sim_rows.append({
-                    "Model Variant": item["product_name"],
+                    "Product Model": item["product_name"],
                     "Amazon Price": f"{curr_symbol}{item['amazon']['price'] * rate:,.2f}",
                     "Flipkart Price": f"{curr_symbol}{item['flipkart']['price'] * rate:,.2f}",
                     "Price Diff": f"{curr_symbol}{item['price_diff'] * rate:,.2f}",

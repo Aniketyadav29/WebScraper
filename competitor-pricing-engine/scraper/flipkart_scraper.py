@@ -8,7 +8,7 @@ Subclasses BaseScraper and integrates realistic browser headers, search
 query extraction, and exact price parsing.
 
 Author : Aniket Yadav | BBD
-Version: 2.0.0
+Version: 2.1.0
 """
 
 from __future__ import annotations
@@ -71,7 +71,7 @@ FLIPKART_HEADER_PROFILES = [
         ),
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-IN,en;q=0.9",
-    }
+    },
 ]
 
 
@@ -89,7 +89,7 @@ class FlipkartScraper(BaseScraper):
         Search Flipkart for a query keyword and scrape matching products with exact prices.
 
         Args:
-            query: Keyword to search (e.g., 'iphone 15', 'smartwatch')
+            query: Keyword to search (e.g., 'Fortune oil', 'iphone 15', 'smartwatch')
             max_pages: Number of result pages to scrape
             max_items: Maximum items to collect
 
@@ -138,6 +138,7 @@ class FlipkartScraper(BaseScraper):
     def _extract_search_results(self, soup: BeautifulSoup, query: str) -> list[dict[str, Any]]:
         """Extract product items from Flipkart search results page across all layout variants."""
         products = []
+        query_words = [w.lower() for w in query.strip().split() if len(w) > 2]
 
         cards = soup.select("div[data-id]")
         if not cards:
@@ -161,6 +162,9 @@ class FlipkartScraper(BaseScraper):
                         break
             if not title or len(title) < 4:
                 continue
+
+            # Clean sponsored ad prefixes
+            title = re.sub(r"^Sponsored\s*", "", title, flags=re.IGNORECASE).strip()
 
             # Exact Live Price
             price_val = None
@@ -241,6 +245,9 @@ class FlipkartScraper(BaseScraper):
 
             sku_val = f"FLP-{fsn}" if fsn else f"FLP-{abs(hash(title)) % 1000000}"
 
+            # Check relevance
+            relevance = sum(1 for w in query_words if w in title.lower())
+
             product = {
                 "sku": sku_val,
                 "fsn": fsn,
@@ -257,10 +264,12 @@ class FlipkartScraper(BaseScraper):
                 "product_url": product_url,
                 "image_url": img_url,
                 "is_plus": bool(card.select_one("img[src*='plus']")),
+                "relevance": relevance,
                 "scraped_at": datetime.now(timezone.utc).isoformat(),
             }
             products.append(product)
 
+        products.sort(key=lambda x: x.get("relevance", 0), reverse=True)
         return products
 
     def _extract_product(self, soup: BeautifulSoup, url: str) -> dict[str, Any]:

@@ -418,25 +418,45 @@ class EcommerceTracker:
                 f"{title_q} 50-Inch Bezel-less Smart LED TV",
                 f"{title_q} Complete Installation Kit & High-Speed Cable",
             ]
-        # 12. Grocery & Nutrition
-        elif any(w in q_lower for w in ["coffee", "tea", "almond", "biscuit", "grocery", "oil", "ghee", "protein", "whey", "nut", "honey"]):
-            base_price = 499.0
+        # 12. Edible Oils, Fortune, Grocery & Nutrition
+        elif any(w in q_lower for w in ["fortune", "oil", "mustard", "sunflower", "refined", "soyabean", "olive", "ghee", "rice bran", "canola"]):
+            base_price = 195.0
+            category = "Edible Oils & Grocery"
+            if "fortune" in q_lower:
+                variants = [
+                    "Fortune Premium Kachi Ghani Pure Mustard Oil (1L Bottle)",
+                    "Fortune Sunlite Refined Sunflower Oil (1L Pouch)",
+                    "Fortune Rice Bran Health Physically Refined Oil (1L)",
+                    "Fortune Soya Health Refined Soyabean Oil (1L Pouch)",
+                    "Fortune Kachi Ghani Pure Mustard Oil (2 x 1L Value Pack)",
+                ]
+            else:
+                variants = [
+                    f"{title_q} Pure Mustard Oil (1 Litre Bottle)",
+                    f"{title_q} Refined Sunflower Cooking Oil (1 Litre Pouch)",
+                    f"{title_q} Physically Refined Rice Bran Health Oil (1L)",
+                    f"{title_q} Soya Health Cooking Oil (1 Litre Pouch)",
+                    f"{title_q} Cold Pressed Cooking Oil (Pack of 2 x 1L)",
+                ]
+        # 13. Other Grocery, Coffee, Tea & Nutrition
+        elif any(w in q_lower for w in ["coffee", "tea", "almond", "biscuit", "grocery", "protein", "whey", "nut", "honey", "atta", "rice", "dal"]):
+            base_price = 349.0
             category = "Grocery & Nutrition"
             variants = [
-                f"{title_q} 200g Glass Jar / Value Pack",
-                f"{title_q} 500g Value Saver Pouch",
-                f"{title_q} 1kg Economy Mega Pack",
-                f"{title_q} Premium Reserve Blend",
-                f"{title_q} Buy 1 Get 1 Special Value Bundle",
+                f"{title_q} Premium Pack (500g)",
+                f"{title_q} Economy Saver Pouch (1 kg)",
+                f"{title_q} Family Mega Value Pack (2 kg)",
+                f"{title_q} Organic Reserve Edition",
+                f"{title_q} Value Combo (Pack of 2)",
             ]
         else:
             base_price = 1499.0
             category = "General Merchandise"
             variants = [
-                f"{title_q} - Standard Edition (Model A)",
-                f"{title_q} - Plus Variant with Enhanced Durability",
-                f"{title_q} - Pro Series Premium Edition",
-                f"{title_q} - Value Combo Pack",
+                f"{title_q} - Standard Edition",
+                f"{title_q} - Plus Variant",
+                f"{title_q} - Pro Series Edition",
+                f"{title_q} - Multi-Pack Value Combo",
                 f"{title_q} - Accessories & Maintenance Kit",
             ]
 

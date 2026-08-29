@@ -8,7 +8,7 @@ Subclasses BaseScraper and integrates anti-bot headers, search scraping,
 and exact price parsing.
 
 Author : Aniket Yadav | BBD
-Version: 2.0.0
+Version: 2.1.0
 """
 
 from __future__ import annotations
@@ -95,7 +95,7 @@ class AmazonScraper(BaseScraper):
         Search Amazon for a query keyword and scrape matching products with exact prices.
 
         Args:
-            query: Keyword to search (e.g., 'iphone 15', 'sony headphones')
+            query: Keyword to search (e.g., 'Fortune oil', 'iphone 15', 'sony headphones')
             max_pages: Number of result pages to scrape
             max_items: Maximum items to collect
 
@@ -112,7 +112,6 @@ class AmazonScraper(BaseScraper):
             url = AMAZON_SEARCH_URL.format(query=encoded_query, page=page)
             self.logger.info("Scraping Amazon search page %d: %s", page, url)
 
-            # Try header profiles for resilience against anti-bot challenges
             response_text = ""
             for h_idx, headers in enumerate(HEADER_PROFILES):
                 try:
@@ -150,37 +149,58 @@ class AmazonScraper(BaseScraper):
         return collected_products
 
     def _extract_search_results(self, soup: BeautifulSoup, query: str) -> list[dict[str, Any]]:
-        """Extract product cards from Amazon search results HTML with exact prices."""
+        """Extract product cards from Amazon search results HTML with exact prices and clean titles."""
         products = []
         cards = soup.select("div[data-component-type='s-search-result']")
+        query_words = [w.lower() for w in query.strip().split() if len(w) > 2]
 
         for card in cards:
             asin = card.get("data-asin", "").strip()
             if not asin:
                 continue
 
-            # Title
+            # 1. Title Extraction
+            brand_el = card.select_one(".s-title-instructions-style h2 .a-size-base-plus, h2.a-size-mini span")
+            brand = brand_el.get_text(strip=True) if brand_el else ""
+
             title = ""
-            for t_sel in [
-                "h2 a.a-link-normal span",
-                "span.a-size-medium.a-text-normal",
-                "span.a-size-base-plus.a-text-normal",
-                "a.a-link-normal span.a-text-normal",
-                "h2 a span",
-                "h2 span",
-            ]:
-                el = card.select_one(t_sel)
-                if el and len(el.get_text(strip=True)) > len(title):
-                    title = el.get_text(strip=True)
+            img_el = card.select_one("img.s-image")
+            img_alt = img_el.get("alt", "").strip() if img_el else ""
+            img_src = img_el.get("src", "").strip() if img_el else ""
 
-            if not title or len(title) < 4:
-                h2 = card.select_one("h2")
-                title = h2.get_text(strip=True) if h2 else ""
+            # Check h2 aria-label
+            h2_aria = card.select_one(".s-title-instructions-style a h2[aria-label], h2[aria-label]")
+            if h2_aria and h2_aria.get("aria-label"):
+                title = h2_aria.get("aria-label").strip()
 
-            if not title or len(title) < 3:
+            if not title and img_alt and len(img_alt) > 6:
+                title = img_alt
+
+            if not title or len(title) < 6:
+                for sel in [
+                    "h2 a.a-link-normal span",
+                    "a.a-link-normal span.a-text-normal",
+                    "span.a-size-medium.a-text-normal",
+                    "span.a-size-base-plus.a-text-normal",
+                    "h2 span",
+                ]:
+                    el = card.select_one(sel)
+                    if el and len(el.get_text(strip=True)) > len(title):
+                        title = el.get_text(strip=True)
+
+            # Clean sponsored ad prefixes
+            title = re.sub(r"^Sponsored Ad\s*-\s*", "", title, flags=re.IGNORECASE).strip()
+            title = re.sub(r"^Sponsored\s*", "", title, flags=re.IGNORECASE).strip()
+
+            if brand and title and not title.lower().startswith(brand.lower()):
+                full_title = f"{brand} {title}"
+            else:
+                full_title = title or brand
+
+            if len(full_title) < 3:
                 continue
 
-            # Exact Price
+            # 2. Exact Live Price
             price_val = None
             price_tag = card.select_one(".a-price .a-price-whole")
             if price_tag:
@@ -203,7 +223,7 @@ class AmazonScraper(BaseScraper):
             if price_val is None:
                 continue
 
-            # Original / MRP Price
+            # 3. MRP / Strike Price
             mrp_val = None
             mrp_tag = card.select_one(
                 ".a-price.a-text-price span.a-offscreen, span.a-price[data-a-strike='true'] span.a-offscreen"
@@ -219,7 +239,7 @@ class AmazonScraper(BaseScraper):
             if mrp_val is None or mrp_val < price_val:
                 mrp_val = price_val
 
-            # Rating
+            # 4. Rating & Reviews
             rating = 4.2
             rating_tag = card.select_one("i.a-icon-star-small span.a-icon-alt, span.a-icon-alt")
             if rating_tag:
@@ -231,7 +251,6 @@ class AmazonScraper(BaseScraper):
                     except ValueError:
                         pass
 
-            # Review count
             reviews_count = 0
             reviews_tag = card.select_one("span.a-size-base.s-underline-text, a[href*='customerReviews'] span")
             if reviews_tag:
@@ -243,8 +262,8 @@ class AmazonScraper(BaseScraper):
                     except ValueError:
                         pass
 
-            # Product URL
-            link_tag = card.select_one("h2 a, a.a-link-normal.s-no-outline")
+            # 5. Product URL
+            link_tag = card.select_one("a.a-link-normal[href*='/dp/'], h2 a, a.a-link-normal.s-no-outline")
             href = link_tag.get("href", "") if link_tag else ""
             if href.startswith("/"):
                 product_url = f"{AMAZON_BASE_URL}{href}"
@@ -253,22 +272,17 @@ class AmazonScraper(BaseScraper):
             else:
                 product_url = f"{AMAZON_BASE_URL}/dp/{asin}"
 
-            # Image
-            img_tag = card.select_one("img.s-image")
-            img_url = img_tag.get("src", "") if img_tag else ""
-
-            # Prime eligibility & Stock
-            is_prime = bool(card.select_one("i.a-icon-prime"))
-            stock_status = "In Stock"
-
             discount_pct = 0.0
             if mrp_val and mrp_val > price_val:
                 discount_pct = round(((mrp_val - price_val) / mrp_val) * 100, 1)
 
+            # Check relevance score: boost if title contains main query keywords
+            relevance = sum(1 for w in query_words if w in full_title.lower())
+
             product = {
                 "sku": f"AMZ-{asin}",
                 "asin": asin,
-                "title": title,
+                "title": full_title,
                 "category": query.title(),
                 "price": price_val,
                 "mrp": mrp_val,
@@ -276,15 +290,18 @@ class AmazonScraper(BaseScraper):
                 "currency": "INR",
                 "rating": rating,
                 "review_count": reviews_count,
-                "availability": stock_status,
+                "availability": "In Stock",
                 "competitor_name": "Amazon India",
                 "product_url": product_url,
-                "image_url": img_url,
-                "is_prime": is_prime,
+                "image_url": img_src,
+                "is_prime": bool(card.select_one("i.a-icon-prime")),
+                "relevance": relevance,
                 "scraped_at": datetime.now(timezone.utc).isoformat(),
             }
             products.append(product)
 
+        # Sort products by query keyword relevance so exact matches come first
+        products.sort(key=lambda x: x.get("relevance", 0), reverse=True)
         return products
 
     def _extract_product(self, soup: BeautifulSoup, url: str) -> dict[str, Any]:
